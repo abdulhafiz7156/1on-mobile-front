@@ -1,0 +1,30 @@
+.header{
+    margin: 0px 0 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: #101418;
+    margin-bottom: 20px;
+}
+
+.header__menu__burger img {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.header__notifications img {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.header__title p {
+    font-size: 22px;
+}
+
+

@@ -1,0 +1,21 @@
+.navigation__bars {
+    background: #1C2024;
+    justify-content: space-between;
+    padding: 12px 20px 16px 20px;
+    text-align: center;
+}
+
+.active__navigation__bar {
+    background-color: #3A4857;
+}
+
+.active__navigation__bar__p {
+    font-weight: 600;
+}
+
+.navigation__bar img{
+    width: 24px;
+    height: 24px;
+    padding: 4px 20px;
+    border-radius: 16px;
+}

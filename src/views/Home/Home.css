@@ -1,0 +1,215 @@
+.container {
+    padding: 15px 16px;
+}
+
+.df {
+    display: flex;
+}
+
+.df__jcc {
+    display: flex;
+    justify-content: center;
+}
+
+.df__jcc__aic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home__search__input {
+    width: calc(100% - 60px);
+    padding: 2px 30px;
+    background: rgba(39, 42, 47, 1);
+    height: 55px;
+    border-radius: 28px;
+    border: none;
+    outline: none;
+    background-image: url("../../assets/icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.home__search__input::placeholder {
+    color: rgba(194, 199, 207, 1);
+    font-size: 16px;
+}
+
+.home__search__div__input {
+    margin-top: 65px;
+}
+
+.home__notification__popup {
+    background: rgba(48, 98, 140, 1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.home__notification__popup p {
+    font-size: 14px;
+    color: rgba(239, 241, 246, 1);
+    letter-spacing: 0.25px;
+}
+
+.home__notification__popup img {
+    width: 48px;
+    height: 48px;
+}
+
+.home__filter__cards {
+    margin-top: 15px;
+    display: flex;
+    overflow: hidden;
+    /*!*overflow-x: hidden;*! if you are turning on this then there is problem with opening a dropdown*/
+}
+
+
+.home__filter__card{
+    margin-right: 12px;
+    margin-bottom: 10px;
+}
+
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: rgba(24, 28, 32, 1);
+    border-radius: 8px;
+    padding: 7px 8px;
+    cursor: pointer;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.custom-select img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.custom-select img:last-child {
+    margin-left: 10px;
+    margin-right: 0px !important;
+}
+
+.custom-select .selected-option {
+    flex-grow: 1;
+}
+
+.custom-options {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(24, 28, 32, 1);
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.custom-option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-option:hover {
+    background-color: #f4f4f4;
+}
+
+
+.custom-select img {
+    width: 18px;
+    height: 18px;
+}
+
+.home__card{
+    background: rgba(28, 32, 36, 1);
+    border-radius: 10px;
+    border: 1px solid rgba(66, 71, 78, 1);
+    margin: 20px 0;
+    padding-bottom: 15px;
+}
+
+.home__card:first-child {
+    margin-top: 0px !important;
+
+}
+
+.home__card__logo__rate__address {
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.home__card__name__rate__address h3 {
+    font-weight: 500;
+}
+
+.home__card__name__rate__address div {
+    margin-right: 5px;
+}
+
+.home__card__name__rate__address p {
+    font-size: 14px;
+}
+
+.home__card__rate__address img {
+    margin-right: 5px;
+}
+
+.home__card__time__button {
+    padding-top: 15px;
+
+}
+
+
+.home__card__time div p{
+    background: rgba(58, 72, 87, 1);
+    padding: 7px 10px;
+    border-radius: 13px;
+    text-align: center;
+    width: 50px;
+    margin: 10px 10px 0 0
+}
+
+.home__card__time div{
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.home__card__image img{
+    width: 100%;
+}
+
+.home__card__time__button {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 20px 20px 0px 20px;
+}
+
+.home__card__button button {
+    width: 115px;
+    height: 40px;
+    padding: 10px 24px 10px 24px;
+    gap: 8px;
+    background: rgba(156, 203, 251, 1);
+    border: none;
+    border-radius: 100px;
+}
+
+.home__card__button {
+
+}
+
+.home__card__button button a {
+    color: #003354;
+    font-weight: 600;
+}
