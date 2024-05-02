@@ -20,5 +20,6 @@ button {
   height: 48px;
   font-size: 16px;
   font-weight: 600;
+  margin: 20px 0px;
 }
 </style>
