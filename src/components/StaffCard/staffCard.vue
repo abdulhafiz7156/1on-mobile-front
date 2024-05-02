@@ -1,4 +1,12 @@
-
+<script>
+  export default{
+    props: {
+      plusVisible: String
+    },
+    setup(){
+    }
+  }
+</script>
 <template>
     <div class="card-all">
         <div class="df top">
@@ -12,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="df__jcc__aic">
+            <div class="df__jcc__aic" v-if="plusVisible">
                 <img src="/src/assets/icons/plus.svg" alt="+">
             </div>
         </div>
@@ -42,6 +50,10 @@
         margin-bottom: 18px;
         justify-content: space-between;
     }
+    .top img {
+      background: #323539;
+      border-radius: 50%;
+    }
    
     .img__rate{
         margin-top: 6px;
@@ -69,7 +81,8 @@
         font-size: 12px;
         border-radius: 30px;
         padding:4px 12px 4px 4px;
-        border: 1px solid #8C9199;
+        border: 2px solid #8C9199;
+        color: #C2C7CF;
     }
     .b{
         width: 50px;
