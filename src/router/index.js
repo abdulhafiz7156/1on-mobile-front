@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../views/Home/Home.vue';
 import BarberProfile from '../views/barber/BarberProfile.vue';
 import ServiceCard from '../components/ServiceCard/ServiceCard.vue';
 import ServiceCardWithoutImage from '../components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue';
@@ -12,16 +12,16 @@ const router = createRouter({
             component: Home,
         },
         {
-            path: '/barber/profile',
-            component: BarberProfile,
-        },
-        {
-            path: '/sevice/cards',
+            path: '/servicecard',
             component: ServiceCard,
         },
         {
-            path: '/servicecardwithoutimage/cards',
+            path: '/servicecard/withoutimage',
             component: ServiceCardWithoutImage,
+        },
+        {
+            path: '/barberprofile',
+            component: BarberProfile,
         },
         // {
         //     path: '/auth/registration/',

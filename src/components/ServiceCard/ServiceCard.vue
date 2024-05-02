@@ -1,6 +1,6 @@
 <script>
     import "./ServiceCard.css";
-    import Card from "./elements/card.vue";
+    import Card from "./card.vue";
     export default{
         components:{Card},
     }
@@ -12,14 +12,14 @@
             <a href="#" class="icons"><img src="/src/assets/icons/back-icon.svg" alt="Back-icon"></a>
             <h2>Xizmat tanlash</h2>
         </header>
-        <h3>Asosiy xizmatlar</h3>
+        <h4>Asosiy xizmatlar</h4>
         <div class="cards">
             <Card/>
             <Card/>
             <Card/>
             <Card/>
         </div>
-        <h3>Qo’shimcha xizmatlar</h3>
+        <h4>Qo’shimcha xizmatlar</h4>
         <div class="cards">
             <Card/>
             <Card/>

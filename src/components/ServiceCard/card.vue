@@ -18,9 +18,12 @@
 
 <template>
    <div id="card">
-       <img src="/src/assets/images/Thumbnail.svg" alt="" width="56px" height="56px">
-       <p><b>Soch turmagi</b><br> 30 min | 150 000 so’m</p>
-       <img @click="addOrDelete" :src="imageUrl" alt="">
+        <img src="/src/assets/images/Thumbnail.svg" alt="" width="56px" height="56px">
+        <div>
+            <p>Soch turmagi</p>
+            <p>45 min | 200 000 so’m</p>
+        </div>
+        <img @click="addOrDelete" :src="imageUrl" alt="">
     </div>
 </template>
 

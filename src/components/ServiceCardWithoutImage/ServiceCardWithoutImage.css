@@ -29,6 +29,7 @@
     margin-bottom: 16px;
 }
 .card_2 p{
+    font-size: 16px;
     margin: 8px 88px 8px 0px;
     width:187px;    
 }
@@ -37,4 +38,7 @@ header{
     padding: 8px 0px;
     display: flex;
     align-items: center;
+}
+.card_2 p:last-child{
+    font-size: 12px;
 }

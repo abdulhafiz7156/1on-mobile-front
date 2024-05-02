@@ -1,6 +1,6 @@
 <script>
     import "./ServiceCardWithoutImage.css";
-    import CardWI from "./elements/CardWithoutImage.vue";
+    import CardWI from "./CardWithoutImage.vue";
     export default{
         components:{CardWI},
     }
@@ -12,14 +12,14 @@
             <a href="#" class="icons"><img src="/src/assets/icons/back-icon.svg" alt="Back-icon"></a>
             <h2>Xizmat tanlash</h2>
         </header>
-        <h3>Asosiy xizmatlar</h3>
+        <h4>Asosiy xizmatlar</h4>
         <div class="cards_2">
             <CardWI/>
             <CardWI/>
             <CardWI/>
             <CardWI/>
         </div>
-        <h3>Qo’shimcha xizmatlar</h3>
+        <h4>Qo’shimcha xizmatlar</h4>
         <div class="cards_2">
             <CardWI/>
             <CardWI/>

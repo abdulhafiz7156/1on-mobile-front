@@ -12,7 +12,10 @@
         <div class="info">
             <img src="/src/assets/images/avatar.svg" alt="Avatar" class="avatar">
             <h2>Ja’far Rahimov</h2>
-            <p><img src="/src/assets/icons/star-icon.svg"> (4.6) Barber</p>
+            <div class="df img__rate">
+                <img src="/src/assets/icons/star-icon.svg">
+                <p> <span>(4.6)</span> Barber</p>
+            </div>
             <div class="br-services">
                 <h3>Ko’rsatadigan xizmatlari</h3>
                 <img src="/src/assets/icons/arrow-right-icon.svg">
@@ -64,6 +67,15 @@ header{
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+.img__rate{
+    align-items: center;
+}
+.img__rate p{
+    margin-left: 8px;
+}
+.img__rate span{
+    margin-right: 8px;
 }
 .avatar{
     width: 100px;
