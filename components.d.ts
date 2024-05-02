@@ -16,5 +16,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     ServiceCard: typeof import('./src/components/ServiceCard/ServiceCard.vue')['default']
     ServiceCardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue')['default']
+    SteffCrad: typeof import('./src/components/SteffCard/steffCrad.vue')['default']
   }
 }
