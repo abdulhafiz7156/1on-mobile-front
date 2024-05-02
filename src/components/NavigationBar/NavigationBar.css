@@ -5,7 +5,7 @@
     padding: 12px 20px 16px 20px;
     text-align: center;
     position: fixed;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .active__navigation__bar {
@@ -16,14 +16,8 @@
     font-weight: 600;
 }
 
-.navigation__bar {
-    margin-right: 30px;
-    width: 115px;
-}
 
 .navigation__bar img{
-    width: 24px;
-    height: 24px;
     padding: 4px 20px;
     border-radius: 16px;
 }

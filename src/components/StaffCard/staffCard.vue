@@ -1,6 +1,3 @@
-<script>
-
-</script>
 
 <template>
     <div class="card-all">
@@ -39,6 +36,7 @@
         border-radius: 12px;
         background: #1C2024;
         padding: 16px;
+        margin-top: 20px;
     }
     .top{
         margin-bottom: 18px;

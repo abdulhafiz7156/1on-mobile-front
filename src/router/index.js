@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home/Home.vue';
-import BarberProfile from '../views/barber/BarberProfile.vue';
+import BarberProfile from '../views/Barber/BarberProfile.vue';
 import ServiceCard from '../components/ServiceCard/ServiceCard.vue';
 import ServiceCardWithoutImage from '../components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue';
+import BarbershopPage from "../views/BarbershopPage/BarbershopPage.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -10,6 +11,10 @@ const router = createRouter({
         {
             path: '/',
             component: Home,
+        },
+        {
+            path: '/barbershop',
+            component: BarbershopPage,
         },
         {
             path: '/servicecard',

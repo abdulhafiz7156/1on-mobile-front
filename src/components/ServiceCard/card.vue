@@ -18,11 +18,13 @@
 
 <template>
    <div id="card">
+     <div class="df">
         <img src="/src/assets/images/Thumbnail.svg" alt="" width="56px" height="56px">
         <div>
             <p>Soch turmagi</p>
             <p>45 min | 200 000 so’m</p>
         </div>
+     </div>
         <img @click="addOrDelete" :src="imageUrl" alt="">
     </div>
 </template>
