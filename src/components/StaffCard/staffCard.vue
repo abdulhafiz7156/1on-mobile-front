@@ -15,7 +15,8 @@
                 <div>
                     <h4>Ja’far Rahimov</h4>
                     <div class="df img__rate">
-                        <img src="/src/assets/icons/star-icon.svg" width="20px" height="20px">
+<!--                        <img src="/src/assets/icons/star-icon.svg" width="20px" height="20px">-->
+                        <i class="bi bi-star"></i>
                         <p> <span>(4.6)</span> Barber</p>
                     </div>
                 </div>
