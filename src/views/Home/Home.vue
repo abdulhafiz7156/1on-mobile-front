@@ -53,37 +53,7 @@
       </div>
     </div>
     <div class="home__cards">
-      <div class="home__card" v-for="(card, index) in cards" :key="index">
-        <div class="home__card__logo__rate__address df">
-          <img src="../../assets/images/barbershop__logo.png" alt="">
-          <div class="home__card__name__rate__address">
-            <h3>{{card.name}}</h3>
-            <div class="home__card__rate__address df__jcc__aic">
-              <div class="df__jcc__aic">
-                <img src="../../assets/icons/star2.png" alt="">
-                <p>{{card.rate}}</p>
-              </div>
-              <p>{{card.address}}</p>
-            </div>
-          </div>
-          <img src="../../assets/icons/barbershop__menu__burger.svg" alt="">
-        </div>
-        <div class="home__card__image">
-          <img src="../../assets/images/barbershop.png" alt="">
-        </div>
-        <div class="home__card__time__button df">
-          <div class="home__card__time">
-              <p>Bron qilish vaqti:</p>
-              <div class="df">
-                <p>{{card.bronTime}}</p>
-                <p>{{card.bronTime}}</p>
-              </div>
-          </div>
-          <div class="home__card__button">
-            <button><a href="">Bog’lanish</a></button>
-          </div>
-        </div>
-      </div>
+      <HomeCard :cards="cards" />
     </div>
 
   </div>
@@ -95,8 +65,9 @@ import "./Home.css"
 import Header from "../../components/Header/Header.vue";
 import {ref} from "vue";
 import NavigationBar from "../../components/NavigationBar/NavigationBar.vue";
+import HomeCard from "../../components/HomeCard/HomeCard.vue";
 export default{
-  components: {NavigationBar, Header},
+  components: {HomeCard, NavigationBar, Header},
   setup (){
     const title = ref("1on.uz")
     const notificationPopup = ref(true)
