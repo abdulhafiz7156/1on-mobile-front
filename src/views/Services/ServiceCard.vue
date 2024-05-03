@@ -1,17 +1,17 @@
 <script>
     import "./ServiceCard.css";
-    import Card from "./card.vue";
+    import Card from "../../components/ServiceCard/card.vue";
+    import Button from "../../components/Button/Button.vue";
+    import HeaderPages from "../../components/HeaderPages/HeaderPages.vue";
+
     export default{
-        components:{Card},
+        components:{HeaderPages, Card},
     }
 </script>
 
 <template>
     <div class="all">
-        <header>
-            <a href="#" class="icons"><img src="/src/assets/icons/back-icon.svg" alt="Back-icon"></a>
-            <h2>Xizmat tanlash</h2>
-        </header>
+        <HeaderPages>Xizmat tanlash</HeaderPages>
         <h4>Asosiy xizmatlar</h4>
         <div class="cards">
             <Card/>
@@ -26,7 +26,7 @@
             <Card/>
             <Card/>
         </div>
-        <button class="reserve">Tasdiqlash</button>
+      <Button>Tasdiqlash</Button>
     </div>
 </template>
 

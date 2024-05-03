@@ -11,14 +11,14 @@
   "dependencies": {
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
+    "bootstrap-icons": "^1.11.3",
+    "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
-    "sass": "^1.76.0",
-    "sass-loader": "^14.2.1",
     "typescript": "^5.2.2",
     "unplugin-vue-components": "^0.27.0",
     "vite": "^5.2.0",

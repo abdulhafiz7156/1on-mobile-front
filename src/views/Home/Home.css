@@ -18,7 +18,7 @@
 }
 
 .home__search__input {
-    width: calc(100% - 60px);
+    width: 100%;
     padding: 2px 30px;
     background: rgba(39, 42, 47, 1);
     height: 55px;
@@ -90,6 +90,7 @@
 }
 
 .custom-select img {
+    width: 20px;
     width: 20px;
     height: 20px;
     margin-right: 10px;

@@ -1,0 +1,73 @@
+#calendar {
+    width: 100%;
+}
+
+.p-datepicker {
+    background: #1C2024;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border: none;
+}
+
+.p-datepicker-header {
+    padding: 15px;
+    border-bottom: none;
+}
+
+.p-datepicker-calendar {
+    margin-top: 20px;
+}
+
+.p-datepicker-calendar thead tbody tr{
+    margin-top: 20px;
+
+}
+
+.p-datepicker-title button:first-child {
+    margin-right: 5px;
+}
+
+
+.p-datepicker table td > span {
+    height: 3rem;
+    width: 3rem;
+}
+
+.calendar {
+    margin: 20px 0px;
+}
+
+.container h4 {
+    font-weight: 400;
+}
+
+.calendar__choice__day {
+    font-size: 32px;
+    color: #E0E2E8;
+    background: #1C2024;
+    padding: 20px;
+    border-top-right-radius: 28px;
+    border-top-left-radius: 28px;
+    border-bottom: 2px solid #42474E;
+}
+
+.calendar__time{
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+    row-gap: 20px;
+}
+
+.calendar__time div {
+    background-color: transparent;
+    border: 1px solid #8C9199;
+    padding: 15px 38px;
+    border-radius: 8px;
+    color: #E0E2E8;
+}
+
+.calendar__time div.deactive__div {
+    border: 1px solid #938F991F;
+}

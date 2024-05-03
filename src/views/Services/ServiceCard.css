@@ -1,13 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    color: #E0E2E8;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
+
 .all {
     margin: 0 16px;
-    width: 375px;
 }
 #card {
     display: flex;
@@ -15,28 +8,25 @@
     padding: 8px 12px;
     align-items: center;
     border-radius: 12px;
+    justify-content: space-between;
     background-color: #1C2024;
 }
 #card * {
     background: transparent;
 }
 .cards {
-    width: 343px;
     margin-bottom: 16px;
 }
 #card p {
     font-size:16px;
     margin: 8px 16px;
-    width: 187px;
 }
 header {
-    width: 375px;
     padding: 8px 0;
     display: flex;
     align-items: center;
 }
 .reserve {
-    width: 345px;
     height: 48px;
     border: none;
     font-size: 14px;

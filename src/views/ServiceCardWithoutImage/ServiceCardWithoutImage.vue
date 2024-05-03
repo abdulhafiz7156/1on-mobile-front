@@ -1,6 +1,7 @@
 <script>
     import "./ServiceCardWithoutImage.css";
-    import CardWI from "./CardWithoutImage.vue";
+    import CardWI from "../../components/ServiceCardWithoutImage/CardWithoutImage.vue";
+    import Button from "../../components/Button/Button.vue";
     export default{
         components:{CardWI},
     }
@@ -8,11 +9,8 @@
 
 <template>
     <div class="all">
-        <header>
-            <a href="#" class="icons"><img src="/src/assets/icons/back-icon.svg" alt="Back-icon"></a>
-            <h2>Xizmat tanlash</h2>
-        </header>
-        <h4>Asosiy xizmatlar</h4>
+      <HeaderPages>Xizmat tanlash</HeaderPages>
+      <h4>Asosiy xizmatlar</h4>
         <div class="cards_2">
             <CardWI/>
             <CardWI/>
@@ -26,6 +24,7 @@
             <CardWI/>
             <CardWI/>
         </div>
+        <Button>Tasdiqlash</Button>
     </div>
 </template>
 
