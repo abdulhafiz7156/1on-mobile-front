@@ -1,23 +1,23 @@
 <template>
   <div class="navigation__bars df">
-    <div class="navigation__bar" @click="setActive('main')">
+    <div class="navigation__bar" @click="setActive('main', '/')">
       <img src="../../assets/icons/house.svg"
            alt="asosiy"
-           :class="{ 'active__navigation__bar': active === 'main' }"
+           :class="{ 'active__navigation__bar': pathname === '/' }"
       >
-      <p :class="{ 'active__navigation__bar__p': active === 'main' }">Asosiy</p>
+      <p :class="{ 'active__navigation__bar__p': pathname === '/' }">Asosiy</p>
     </div>
-    <div class="navigation__bar" @click="setActive('meets')">
+    <div class="navigation__bar" @click="setActive('meets', '/order')">
       <img src="../../assets/icons/calendar.svg" alt="uchrashuvlar"
-           :class="{ 'active__navigation__bar': active === 'meets' }"
+           :class="{ 'active__navigation__bar': pathname === '/order' }"
       >
-      <p :class="{ 'active__navigation__bar__p': active === 'meets' }">Uchrashuvlar</p>
+      <p :class="{ 'active__navigation__bar__p': pathname === '/order' }">Uchrashuvlar</p>
     </div>
-    <div class="navigation__bar" @click="setActive('profil')">
+    <div class="navigation__bar" @click="setActive('profil', 'profile')">
       <img src="../../assets/icons/user.svg" alt="profil"
-           :class="{ 'active__navigation__bar': active === 'profil' }"
+           :class="{ 'active__navigation__bar': pathname === 'profile' }"
       >
-      <p :class="{ 'active__navigation__bar__p': active === 'profil' }">Profil</p>
+      <p :class="{ 'active__navigation__bar__p': pathname === 'profile' }">Profil</p>
     </div>
   </div>
 </template>
@@ -25,18 +25,22 @@
 <script>
 import "./NavigationBar.css"
 import {ref} from "vue";
+import {useRouter} from 'vue-router'
 export default {
   setup() {
-    const active = ref('main'); // Set default active state to 'asosiy'
-
-    const setActive = (key) => {
+    const router = useRouter();
+    const active = ref('main');
+    const pathname = ref(window.location.pathname)
+    const setActive = (key, path) => {
       active.value = key;
+      router.push(path);
     };
-
 
     return {
       active,
       setActive,
+      router,
+      pathname
     }
   }
 }

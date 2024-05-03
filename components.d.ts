@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/Button/Button.vue')['default']
+    Calendar: typeof import('primevue/calendar')['default']
     Card: typeof import('./src/components/ServiceCard/card.vue')['default']
     CardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/CardWithoutImage.vue')['default']
     Dialog: typeof import('primevue/dialog')['default']
@@ -18,8 +19,12 @@ declare module 'vue' {
     InputOtp: typeof import('primevue/inputotp')['default']
     InputText: typeof import('primevue/inputtext')['default']
     NavigationBar: typeof import('./src/components/NavigationBar/NavigationBar.vue')['default']
+    NotificationCard: typeof import('./src/components/NotificationCard/NotificationCard.vue')['default']
+    OrderCard: typeof import('./src/components/OrderCard/OrderCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StaffCard: typeof import('./src/components/StaffCard/staffCard.vue')['default']
+    TabPanel: typeof import('primevue/tabpanel')['default']
+    TabView: typeof import('primevue/tabview')['default']
   }
 }
