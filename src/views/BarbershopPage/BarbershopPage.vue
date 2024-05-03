@@ -31,17 +31,9 @@
                class="sidebar"
                close-icon="pi pi-minus"
       >
-        <StaffCard :plusVisible="plusVisible"/>
-        <div class="br-services custom__services" data-v-eb7e32a3="">
-          <h3 data-v-eb7e32a3="">Xizmatlar</h3>
-          <img src="/src/assets/icons/arrow-right-icon.svg" data-v-eb7e32a3="">
-          <p data-v-eb7e32a3="">Soqol olish, Soch turmagi</p>
-        </div>
-        <div class="br-services custom__services" data-v-eb7e32a3="">
-          <h3 data-v-eb7e32a3="">Kun va vaqti</h3>
-          <img src="/src/assets/icons/arrow-right-icon.svg" data-v-eb7e32a3="">
-          <p data-v-eb7e32a3="">Soqol olish, Soch turmagi</p>
-        </div>
+          <StaffCard :plusVisible="plusVisible"/>
+          <NotificationCard />
+          <NotificationCard />
           <Button>Tasdiqlash</Button>
       </Sidebar>
     </div>
@@ -56,9 +48,10 @@ import "./BarbershopPage.css"
 import StaffCard from "../../components/StaffCard/staffCard.vue";
 import card from "../../components/ServiceCard/card.vue";
 import Button from "../../components/Button/Button.vue";
+import NotificationCard from "../../components/NotificationCard/NotificationCard.vue";
 
 export default {
-  components: {card, StaffCard, NavigationBar, Header, Button},
+  components: {NotificationCard, card, StaffCard, NavigationBar, Header, Button},
   setup() {
     const headerTitle = ref("Topor barbershop")
     const allStaff = ref(false)
@@ -83,8 +76,15 @@ export default {
   background: #101418 !important;
 }
 
-
 .services #card:last-child {
   margin-bottom: 100px;
+}
+.sidebar .notification__card {
+  background: #101418;
+}
+
+.sidebar .card-all {
+  background: #101418;
+
 }
 </style>

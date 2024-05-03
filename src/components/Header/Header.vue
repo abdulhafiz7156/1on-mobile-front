@@ -39,7 +39,12 @@
       class="header__sidebar__notification"
   >
     <div class="container">
-      <HeaderPages right-visible="true" right-icon="bi bi-check-lg">Bildirishnomalar</HeaderPages>
+      <HeaderPages right-visible="true" right-icon="bi bi-check-lg" class="">Bildirishnomalar</HeaderPages>
+      <NotificationCard/>
+      <NotificationCard/>
+      <NotificationCard/>
+      <NotificationCard/>
+      <NotificationCard/>
     </div>
   </Sidebar>
 
@@ -49,8 +54,9 @@
 import "./Header.css"
 import {ref} from "vue"
 import HeaderPages from "../HeaderPages/HeaderPages.vue";
+import NotificationCard from "../NotificationCard/NotificationCard.vue";
 export default {
-  components: {HeaderPages},
+  components: {NotificationCard, HeaderPages},
   props: {
     title: String
   },
