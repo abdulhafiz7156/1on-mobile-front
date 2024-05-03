@@ -1,4 +1,4 @@
-<template xmlns:h="http://www.w3.org/1999/xhtml">
+<template>
   <!--  :closable="false"-->
   <Dialog class="popup" v-model:visible="visible" modal header="Telefon raqamingizni kiriting"
           :style="{ width: '95%', padding: '16px'}">
@@ -16,7 +16,7 @@
     <div class="auth__socials">
       <p class="subtitle">Kirishning boshqa yo’llari</p>
       <div class="socials-icons">
-        <Toast />
+        <Toast/>
         <img src="../../assets/images/authicons/google.png" alt="">
         <img @click="show()" src="../../assets/images/authicons/apple.png" alt="">
         <img @click="show()" src="../../assets/images/authicons/facebook.png" alt="">
@@ -33,11 +33,11 @@
     <form @submit.prevent="submitForm">
       <div class="flex-auto">
         <div v-if="submitted && !isNameValid" style="color: var(--red-600)">Name is required.</div>
-        <InputText type="text" v-model="username" class="phone" placeholder="Ism" invalid></InputText>
+        <InputText type="text" v-on:keypress="isLetter($event)" v-model="username" class="phone" placeholder="Ism" invalid></InputText>
       </div>
       <div class="flex-auto">
         <div v-if="submitted && !isSurNameValid" style="color: var(--red-600)">Surname is required.</div>
-        <InputText type="text" v-model="surname" class="phone" placeholder="Familiya"/>
+        <InputText type="text" v-model="surname" class="phone" placeholder="Familiya" v-on:keypress="isLetter($event)"/>
       </div>
       <div class="try-again">
         <p class="try-again-skip" @click="name = false, code= true, countdown()">O’tkazib yuborish</p>
@@ -58,10 +58,10 @@
         <div v-if="invalidcode" style="color: var(--red-600)">Tasdiqlash kodi notog’ri</div>
         <InputOtp v-model="invalidcodeinp" class="opt" integer-only/>
       </div>
-      <p v-if="getAgain>0" style="color: #E0E2E8;">Qayta yuborish 00:{{getAgain}}</p>
+      <p v-if="getAgain>0" style="color: #E0E2E8;">Qayta yuborish 00:{{ getAgain }}</p>
       <p v-else style="color: #3B96DD;" @click="ass">Qayta yuborish</p>
       <div class="try-again">
-        <Button type="submit" class="auth__button" rounded >Tasdiqlash</Button>
+        <Button type="submit" class="auth__button" rounded>Tasdiqlash</Button>
       </div>
     </form>
   </Dialog>
@@ -76,7 +76,7 @@ import Button from 'primevue/button';
 import InputMask from 'primevue/inputmask';
 import InputOtp from 'primevue/inputotp';
 import Toast from 'primevue/toast';
-import { useToast } from "primevue/usetoast";
+import {useToast} from "primevue/usetoast";
 
 export default {
   components: {Dialog, Button, InputMask, InputOtp, Toast},
@@ -110,7 +110,7 @@ export default {
     }
 
     const show = () => {
-      toast.add({ severity: 'warn', summary: 'Tez kunda',life: 1000 });
+      toast.add({severity: 'warn', summary: 'Tez kunda', life: 1000});
     };
 
     const countdown = () => {
@@ -126,12 +126,10 @@ export default {
     };
 
 
-
-
-    const checkPhone = ()=> {
+    const checkPhone = () => {
       if (phonenum.value.length < 9) {
         invalid.value = true
-      }else {
+      } else {
         invalid.value = false
         visible.value = false
         name.value = true
@@ -139,15 +137,23 @@ export default {
     }
 
 
-    const checkCode = ()=> {
+    const checkCode = () => {
       console.log(invalidcodeinp.value, invalidcodeinp.value.length)
       if (invalidcodeinp.value.length < 4) {
         invalidcode.value = true
-      }else {
+      } else {
         invalidcode.value = false
         code.value = false
       }
     }
+
+    const isLetter = (e) => {
+      let char = String.fromCharCode(e.keyCode); // Get the character
+      if (/^[A-Za-z]+$/.test(char)) return true; // Match with regex
+      else e.preventDefault(); // If not match, don't add to input text
+    }
+
+
 
     return {
       checkCode,
@@ -160,7 +166,7 @@ export default {
       Dialog,
       invalidcodeinp,
       invalidcode,
-      Button,
+      Button, isLetter,
       InputMask,
       phonenum,
       username,
