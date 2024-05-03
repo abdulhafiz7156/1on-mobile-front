@@ -17,17 +17,33 @@
       </div>
     </div>
     <div class="order__card__button df" v-if="buttonVisible">
-      <button>Bekor qilish</button>
+      <button @click="visibleTop = true">Bekor qilish</button>
       <button>Ozgartirish</button>
     </div>
   </div>
+  <Sidebar v-model:visible="visibleTop" position="bottom"
+           class="sidebar"
+           close-icon="pi pi-minus"
+  >
+  </Sidebar>
+
+
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   name: "OrderCard",
   props: {
     buttonVisible: Boolean,
+  },
+  setup() {
+    const visibleTop = ref(false);
+    return {
+      visibleTop,
+    }
+
   }
 }
 </script>
@@ -50,15 +66,14 @@ export default {
   .order__card__text {
     justify-content: space-between;
     align-items: center;
-
   }
-
 
   .order__card__text {
     background-color: #272A2F;
     padding: 12px 16px;
     border-radius: 12px;
   }
+
   .order__card__text p {
     color: #C2C7CF;
     font-size: 14px;
@@ -67,7 +82,7 @@ export default {
 
   .order__card__time__status{
     font-size: 14px;
-    margin-left: 5px;
+    margin-left: 15px;
     padding: 5px 10px;
     border-radius: 8px;
   }
@@ -107,9 +122,10 @@ export default {
     border: none;
     border-radius: 100px;
     font-size: 14px;
-    width: 164px;
+    width: 48%;
     height: 48px;
     padding: 10px 24px 10px 24px;
+    font-weight: 600;
   }
 
   .order__card__button button:first-child{

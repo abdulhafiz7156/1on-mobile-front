@@ -9,7 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/Button/Button.vue')['default']
     Calendar: typeof import('primevue/calendar')['default']
-    Card: typeof import('primevue/card')['default']
+    Card: typeof import('./src/components/ServiceCard/card.vue')['default']
     CardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/CardWithoutImage.vue')['default']
     Header: typeof import('./src/components/Header/Header.vue')['default']
     HeaderPages: typeof import('./src/components/HeaderPages/HeaderPages.vue')['default']
@@ -19,12 +19,9 @@ declare module 'vue' {
     OrderCard: typeof import('./src/components/OrderCard/OrderCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ServiceCard: typeof import('./src/views/Services/ServiceCard.vue')['default']
-    ServiceCardWithoutImage: typeof import('./src/views/ServiceCardWithoutImage/ServiceCardWithoutImage.vue')['default']
     Sidebar: typeof import('primevue/sidebar')['default']
     StaffCard: typeof import('./src/components/StaffCard/staffCard.vue')['default']
     TabPanel: typeof import('primevue/tabpanel')['default']
     TabView: typeof import('primevue/tabview')['default']
-    ToggleButton: typeof import('primevue/togglebutton')['default']
   }
 }
