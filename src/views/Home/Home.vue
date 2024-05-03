@@ -32,7 +32,7 @@
           </div>
           <div v-if="isOpen[2]" class="custom-options">
             <div v-for="(option, index) in options[1]" :key="index" class="custom-option" @click="selectOption(option.value, 2)">
-              {{ option }}
+              {{ option.label }}
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
           </div>
           <div v-if="isOpen[3]" class="custom-options">
             <div v-for="(option, index) in options[2]" :key="index" class="custom-option" @click="selectOption(option.value, 3)">
-              {{ option }}
+              {{ option.label }}
             </div>
           </div>
         </div>
@@ -66,6 +66,7 @@ import Header from "../../components/Header/Header.vue";
 import {ref} from "vue";
 import NavigationBar from "../../components/NavigationBar/NavigationBar.vue";
 import HomeCard from "../../components/HomeCard/HomeCard.vue";
+
 export default{
   components: {HomeCard, NavigationBar, Header},
   setup (){
