@@ -18,30 +18,68 @@
     </div>
     <div class="order__card__button df" v-if="buttonVisible">
       <button @click="visibleTop = true">Bekor qilish</button>
-      <button>Ozgartirish</button>
+      <button @click="visibleTopEdit = true">Ozgartirish</button>
     </div>
   </div>
   <Sidebar v-model:visible="visibleTop" position="bottom"
            class="sidebar"
            close-icon="pi pi-minus"
+           style="height: 70%;"
   >
-  </Sidebar>
+    <NotificationCard />
+    <p class="sidebar__p">Nega bekor qilmoqchisiz?</p>
 
+    <Dropdown v-model="selectedCity"
+              :options="cities"
+              optionLabel="name"
+              placeholder="Sababi"
+              class="w-full md:w-14rem custom__dropdown"
+
+    />
+    <div class="df order__card__buttons">
+      <Button>Bekor qilish</Button>
+      <Button @click="visibleTop = false">Ortga qaytish</Button>
+    </div>
+
+  </Sidebar>
+  <Sidebar v-model:visible="visibleTopEdit" position="bottom"
+           class="sidebar"
+           close-icon="pi pi-minus"
+           style="height: 70%;"
+  >
+    <StaffCard/>
+    <NotificationCard />
+    <NotificationCard />
+    <Button @click="visibleTopEdit = false">Tasdiqlash</Button>
+  </Sidebar>
 
 </template>
 
 <script>
 import { ref } from "vue";
+import Button from "../Button/Button.vue";
+import StaffCard from "../StaffCard/staffCard.vue";
+import NotificationCard from "../NotificationCard/NotificationCard.vue";
 
 export default {
   name: "OrderCard",
+  components: {NotificationCard, StaffCard, Button},
   props: {
     buttonVisible: Boolean,
   },
   setup() {
     const visibleTop = ref(false);
+    const visibleTopEdit = ref(false);
+    const selectedCity = ref(null);
+    const cities = ref([
+        {"name": "Vaqtim yoq", "value": "0"},
+        {"name": "Ish chiqib qoldi", "value": "1"},
+    ]);
     return {
       visibleTop,
+      visibleTopEdit,
+      selectedCity,
+      cities
     }
 
   }
@@ -136,4 +174,34 @@ export default {
     background: #9CCBFB;
     color: #003354;
   }
+
+  .sidebar .notification__card {
+    background: #101418;
+  }
+
+  .sidebar__p {
+    text-align: center;
+    margin: 25px 0;
+  }
+
+  .custom__dropdown {
+    width: 100%;
+    padding: 20px;
+    background: #323539;
+    outline: none;
+  }
+  .sidebar div {
+    justify-content: space-between;
+  }
+  .order__card__buttons button {
+    width: 48%;
+  }
+  .sidebar div button:first-child {
+    background: #FFDAD6;
+    color: #BA1A1A;
+  }
+  .sidebar .card-all {
+    background: #101418;
+  }
+
 </style>
