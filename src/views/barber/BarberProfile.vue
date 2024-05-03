@@ -144,7 +144,7 @@ a:active,header button:active{
     display: flex;
     border-radius: 12px;
     background-color: #181C20;
-    margin: 10px ;
+    margin: 10px 0px;
     padding: 12px 16px 24px 16px;
     flex-wrap: wrap;
 }

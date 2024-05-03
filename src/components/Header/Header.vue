@@ -56,7 +56,7 @@ export default {
   },
   setup(){
     const visibleLeft = ref(false)
-    const visibleNotificationPopup = ref(true)
+    const visibleNotificationPopup = ref(false)
     return {
       visibleLeft,
       visibleNotificationPopup

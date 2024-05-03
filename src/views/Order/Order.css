@@ -1,0 +1,29 @@
+.active__archive {
+    padding-top: 70px;
+}
+
+
+
+.p-tabview-nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+.p-tabview-nav a{
+    padding: 20px;
+
+}
+
+.p-tabview .p-tabview-nav {
+    background: transparent ;
+}
+
+.p-tabview .p-tabview-panels {
+    background: transparent;
+
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    background: transparent !important
+
+}

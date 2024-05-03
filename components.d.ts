@@ -15,12 +15,15 @@ declare module 'vue' {
     HeaderPages: typeof import('./src/components/HeaderPages/HeaderPages.vue')['default']
     HomeCard: typeof import('./src/components/HomeCard/HomeCard.vue')['default']
     NavigationBar: typeof import('./src/components/NavigationBar/NavigationBar.vue')['default']
+    OrderCard: typeof import('./src/components/OrderCard/OrderCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ServiceCard: typeof import('./src/views/Services/ServiceCard.vue')['default']
     ServiceCardWithoutImage: typeof import('./src/views/ServiceCardWithoutImage/ServiceCardWithoutImage.vue')['default']
     Sidebar: typeof import('primevue/sidebar')['default']
     StaffCard: typeof import('./src/components/StaffCard/staffCard.vue')['default']
+    TabPanel: typeof import('primevue/tabpanel')['default']
+    TabView: typeof import('primevue/tabview')['default']
     ToggleButton: typeof import('primevue/togglebutton')['default']
   }
 }

@@ -6,6 +6,7 @@ import ServiceCardWithoutImage from '../views/ServiceCardWithoutImage/ServiceCar
 import BarbershopPage from "../views/BarbershopPage/BarbershopPage.vue";
 import OrderDate from "../views/OrderDate/OrderDate.vue";
 import Employee from "../views/Employee/Employee.vue";
+import Order from "../views/Order/Order.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -38,6 +39,10 @@ const router = createRouter({
             path: '/employee',
             component: Employee,
         },
+        {
+            path: '/order',
+            component: Order,
+        }
         // {
         //     path: '/auth/registration/',
         //     component: Home,
