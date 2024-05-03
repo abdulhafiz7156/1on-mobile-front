@@ -12,6 +12,7 @@ declare module 'vue' {
     CardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/CardWithoutImage.vue')['default']
     Dialog: typeof import('primevue/dialog')['default']
     Header: typeof import('./src/components/Header/Header.vue')['default']
+    HeaderPages: typeof import('./src/components/HeaderPages/HeaderPages.vue')['default']
     HomeCard: typeof import('./src/components/HomeCard/HomeCard.vue')['default']
     InlineMessage: typeof import('primevue/inlinemessage')['default']
     InputMask: typeof import('primevue/inputmask')['default']
@@ -22,5 +23,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     ServiceCard: typeof import('./src/components/ServiceCard/ServiceCard.vue')['default']
     ServiceCardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue')['default']
+    Sidebar: typeof import('primevue/sidebar')['default']
+    StaffCard: typeof import('./src/components/StaffCard/staffCard.vue')['default']
   }
 }

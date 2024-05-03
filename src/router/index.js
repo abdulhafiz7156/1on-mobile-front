@@ -40,14 +40,6 @@ const router = createRouter({
       path: '/auth',
       component: Auth,
     },
-    // {
-    //     path: '/auth/registration/',
-    //     component: Home,
-    // },
-    // {
-    //     path: '/auth/login',
-    //     component: Home,
-    // },
   ],
 });
 
