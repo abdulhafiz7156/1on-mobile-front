@@ -35,16 +35,20 @@
     <template #header>
       <h1 class="popup__title">Qo’shimcha ma’lumotlar</h1>
     </template>
-    <div class="flex-auto">
-      <InputText type="text" class="phone" placeholder="Ism"/>
-    </div>
-    <div class="flex-auto">
-      <InputText type="text" class="phone" placeholder="Familiya"/>
-    </div>
-    <div class="try-again">
-      <p class="try-again-skip">O’tkazib yuborish</p>
-      <Button label="Tasdiqlash" class="auth__button name__side" rounded/>
-    </div>
+    <form @submit.prevent="submitForm">
+      <div class="flex-auto">
+        <div v-if="submitted && !isNameValid" style="color: var(--red-600)">Name is required.</div>
+        <InputText type="text" v-model="username" class="phone" placeholder="Ism" invalid></InputText>
+      </div>
+      <div class="flex-auto">
+        <div v-if="submitted && !isSurNameValid" style="color: var(--red-600)">Surname is required.</div>
+        <InputText type="text" v-model="surname" class="phone" placeholder="Familiya"/>
+      </div>
+      <div class="try-again">
+        <p class="try-again-skip">O’tkazib yuborish</p>
+        <Button type="submit" label="Tasdiqlash" class="auth__button name__side" rounded/>
+      </div>
+    </form>
   </Dialog>
 
 
@@ -55,7 +59,7 @@
     </template>
     <p class="subtitle">**7753 raqamiga yuborilgan kodni kiriting</p>
     <div class="flex-auto">
-      <InputOtp v-model="value" class="opt"/>
+      <InputOtp v-model="value" class="opt" integer-only/>
     </div>
 
     <div class="try-again">
@@ -67,11 +71,13 @@
 </template>
 
 <script>
+import { ref, computed } from 'vue'
+import { useVuelidate } from '@vuelidate/core'
+import { required, minLength } from '@vuelidate/validators'
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
 import InputMask from 'primevue/inputmask';
 import InputOtp from 'primevue/inputotp';
-import {ref} from "vue";
 
 
 export default {
@@ -81,7 +87,21 @@ export default {
     const name = ref(false)
     const code = ref(false)
     const phonenum = ref(+998)
+    const username = ref('')
+    const surname = ref('')
+    const submitted = ref(false);
 
+    const isNameValid = computed(() => username.value.trim() !== '');
+    const isSurNameValid = computed(() => surname.value.trim() !== '');
+
+    function submitForm() {
+      submitted.value = true;
+      if (!isNameValid.value || isSurNameValid.value) {
+        return;
+      }
+      // Form submission logic here
+      console.log('Form submitted successfully');
+    }
 
     return {
       visible,
@@ -91,6 +111,12 @@ export default {
       Button,
       InputMask,
       phonenum,
+      username,
+      submitted,
+      isNameValid,
+      isSurNameValid,
+      submitForm,
+      surname
     }
   }
 }
@@ -121,6 +147,11 @@ export default {
 .auth__button {
   width: 100%;
   padding: 14px 0;
+  background: #9CCBFB;
+  border: 0;
+  span {
+    color: #003354;
+  }
 }
 
 .name__side {
@@ -149,6 +180,8 @@ export default {
   width: 100%;
   padding: 16px 0 16px 16px;
   margin-bottom: 20px;
+  border: #72777F 1px solid;
+  border-radius: 16px
 }
 
 .subtitle {

@@ -13,6 +13,7 @@ declare module 'vue' {
     Dialog: typeof import('primevue/dialog')['default']
     Header: typeof import('./src/components/Header/Header.vue')['default']
     HomeCard: typeof import('./src/components/HomeCard/HomeCard.vue')['default']
+    InlineMessage: typeof import('primevue/inlinemessage')['default']
     InputMask: typeof import('primevue/inputmask')['default']
     InputOtp: typeof import('primevue/inputotp')['default']
     InputText: typeof import('primevue/inputtext')['default']
