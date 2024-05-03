@@ -7,8 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ArchivedOrder: typeof import('./src/components/archivedOrder/archivedOrder.vue')['default']
-    Button: typeof import('primevue/button')['default']
+    Button: typeof import('./src/components/Button/Button.vue')['default']
     Calendar: typeof import('primevue/calendar')['default']
     Card: typeof import('./src/components/ServiceCard/card.vue')['default']
     CardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/CardWithoutImage.vue')['default']
@@ -25,11 +24,8 @@ declare module 'vue' {
     OrderCard: typeof import('./src/components/OrderCard/OrderCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ServiceCard: typeof import('./src/components/ServiceCard/ServiceCard.vue')['default']
-    ServiceCardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue')['default']
     Sidebar: typeof import('primevue/sidebar')['default']
     StaffCard: typeof import('./src/components/StaffCard/staffCard.vue')['default']
-    SteffCrad: typeof import('./src/components/SteffCard/steffCrad.vue')['default']
     TabPanel: typeof import('primevue/tabpanel')['default']
     TabView: typeof import('primevue/tabview')['default']
   }
