@@ -12,6 +12,7 @@ declare module 'vue' {
     Card: typeof import('./src/components/ServiceCard/card.vue')['default']
     CardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/CardWithoutImage.vue')['default']
     Dialog: typeof import('primevue/dialog')['default']
+    Dropdown: typeof import('primevue/dropdown')['default']
     Header: typeof import('./src/components/Header/Header.vue')['default']
     HeaderPages: typeof import('./src/components/HeaderPages/HeaderPages.vue')['default']
     HomeCard: typeof import('./src/components/HomeCard/HomeCard.vue')['default']

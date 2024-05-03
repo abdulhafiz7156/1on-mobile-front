@@ -85,6 +85,6 @@ export default {
 
 .sidebar .card-all {
   background: #101418;
-
 }
+
 </style>
