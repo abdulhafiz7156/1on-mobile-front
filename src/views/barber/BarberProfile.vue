@@ -55,15 +55,6 @@
 </template>
 
 <style scoped>
-*{
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    color: #E3E1E9;
-    background: transparent;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
 #all{
     display: grid;
     justify-items: center;

@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home/Home.vue';
+import archivedOrder from "../views/archivedOrder/archivedOrder.vue";
+import rateOrder from "../views/rateOrder/rateOrder.vue";
 import BarberProfile from '../views/barber/BarberProfile.vue';
 import ServiceCard from '../views/Services/ServiceCard.vue';
 import ServiceCardWithoutImage from '../views/ServiceCardWithoutImage/ServiceCardWithoutImage.vue';
@@ -48,6 +50,14 @@ const router = createRouter({
     {
       path: '/auth',
       component: Auth,
+    },
+    {
+      path: '/archivedorder',
+      component: archivedOrder,
+    },
+    {
+      path: '/rateorder',
+      component: rateOrder,
     },
 
   ],
