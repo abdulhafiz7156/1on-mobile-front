@@ -7,15 +7,16 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArchivedOrder: typeof import('./src/components/archivedOrder/archivedOrder.vue')['default']
     Button: typeof import('primevue/button')['default']
     Calendar: typeof import('primevue/calendar')['default']
     Card: typeof import('./src/components/ServiceCard/card.vue')['default']
     CardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/CardWithoutImage.vue')['default']
     Dialog: typeof import('primevue/dialog')['default']
+    Dropdown: typeof import('primevue/dropdown')['default']
     Header: typeof import('./src/components/Header/Header.vue')['default']
     HeaderPages: typeof import('./src/components/HeaderPages/HeaderPages.vue')['default']
     HomeCard: typeof import('./src/components/HomeCard/HomeCard.vue')['default']
-    InlineMessage: typeof import('primevue/inlinemessage')['default']
     InputMask: typeof import('primevue/inputmask')['default']
     InputOtp: typeof import('primevue/inputotp')['default']
     InputText: typeof import('primevue/inputtext')['default']
@@ -28,6 +29,7 @@ declare module 'vue' {
     ServiceCardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue')['default']
     Sidebar: typeof import('primevue/sidebar')['default']
     StaffCard: typeof import('./src/components/StaffCard/staffCard.vue')['default']
+    SteffCrad: typeof import('./src/components/SteffCard/steffCrad.vue')['default']
     TabPanel: typeof import('primevue/tabpanel')['default']
     TabView: typeof import('primevue/tabview')['default']
   }
