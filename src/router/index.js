@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home/Home.vue';
 import archivedOrder from "../views/archivedOrder/archivedOrder.vue";
 import rateOrder from "../views/rateOrder/rateOrder.vue";
-import BarberProfile from '../views/barber/BarberProfile.vue';
+import BarberProfile from '../views/Barber/BarberProfile.vue';
 import ServiceCard from '../views/Services/ServiceCard.vue';
 import ServiceCardWithoutImage from '../views/ServiceCardWithoutImage/ServiceCardWithoutImage.vue';
 import BarbershopPage from "../views/BarbershopPage/BarbershopPage.vue";
@@ -10,6 +10,7 @@ import OrderDate from "../views/OrderDate/OrderDate.vue";
 import Employee from "../views/Employee/Employee.vue";
 import Order from "../views/Order/Order.vue";
 import Auth from "../views/Auth/Auth.vue";
+import canceledOrder from "../views/canceledOrder/canceledOrder.vue";
 
 
 const router = createRouter({
@@ -52,12 +53,16 @@ const router = createRouter({
       component: Auth,
     },
     {
-      path: '/archivedorder',
+      path: '/order/archived',
       component: archivedOrder,
     },
     {
-      path: '/rateorder',
+      path: '/order/rate',
       component: rateOrder,
+    },
+    {
+      path: '/order/canceled',
+      component: canceledOrder,
     },
 
   ],

@@ -1,5 +1,7 @@
 <script>
+import HeaderPages from "../../components/HeaderPages/HeaderPages.vue";
 export default {
+  components: {HeaderPages},
   data() {
     return {
         imageUrl:'',
@@ -29,6 +31,7 @@ export default {
 <div class="order">
     <div class="ifnone">
         <main>
+          <HeaderPages>14-Fevral: 12:30 da</HeaderPages>
             <div class="info">
                 <div id="status" class="df__jcc__aic">Yakunlangan</div>
                 <div class="status_date">

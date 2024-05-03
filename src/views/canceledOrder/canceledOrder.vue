@@ -9,10 +9,10 @@ export default {
 <template>
 <div class="order">
     <div class="ifnone">
-        <HeaderPages>Uchrashuvni baholang</HeaderPages>
+        <HeaderPages>14-Fevral: 12:30 da</HeaderPages>
         <main>
             <div class="info">
-                <div id="status" class="df__jcc__aic">Yakunlangan</div>
+                <div id="status" class="df__jcc__aic">Bekor qilingan</div>
                 <div class="status_date">
                     <h5>14-Fevral: 12:30 da</h5>
                     <h4>Topor barbershop</h4>
@@ -20,22 +20,6 @@ export default {
                     <p>Barber: Farrux</p>
                 </div>
             </div>
-            <div>
-                <h4>Baholang</h4>
-                <div class="stars">
-                    <span class="pi pi-star"></span>
-                    <span class="pi pi-star"></span>
-                    <span class="pi pi-star"></span>
-                    <span class="pi pi-star"></span>
-                    <span class="pi pi-star"></span>
-                </div>
-                <div class="person-rev">
-                    <div class="input-container">
-                        <textarea placeholder="Fikringizni qoldiring" maxlength="235"></textarea>
-                    </div>
-                </div>
-            </div>
-          <Button>Tasdiqlash</Button>
         </main>
     </div>
 </div>
