@@ -1,14 +1,27 @@
-<script setup lang="js">
+<script>
+  import Button from "../../components/Button/Button.vue"
+  import HeaderPages from "../../components/HeaderPages/HeaderPages.vue";
+  import { ref } from "vue";
+  export default  {
+    setup(){
+      const rightIcon = ref("bi-chat-left")
 
+      return {
+        rightIcon,
+
+      }
+    }
+
+  }
 </script>
 
 <template>
     <div id="all">
-        <header>
-            <a href="#" class="icons mr"><img src="/src/assets/icons/back-icon.svg" alt="Back-icon"></a>
-            <a href="#" class="icons"><img src="/src/assets/icons/message-icon.svg" alt="Message"></a>
-            <button class="icons"><img src="/src/assets/icons/share-icon.svg" alt="Share"></button>
-        </header>
+      <HeaderPages
+          :right-icon="rightIcon"
+          :right-visible="true"
+          :share-icon="true"
+      ></HeaderPages>
         <div class="info">
             <img src="/src/assets/images/avatar.svg" alt="Avatar" class="avatar">
             <h2>Ja’far Rahimov</h2>
@@ -37,7 +50,7 @@
             <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
             <img class="img" src="/src/assets/icons/5-stars-icon.svg">
         </div>
-        <button class="reserve">Bron qilish</button>
+        <Button>Bron qilish</Button>
     </div>
 </template>
 
@@ -52,9 +65,9 @@
     font-family: "Roboto", sans-serif;
 }
 #all{
-    width: 345px;
     display: grid;
     justify-items: center;
+    padding: 20px;
 }
 .h3{
     margin-left: -288px;
@@ -86,7 +99,6 @@ header{
     margin-bottom: 16px;
 }
 .br-services{
-    width: 343px;
     height: 88px;
     display: flex;
     flex-wrap: wrap;
@@ -100,7 +112,6 @@ header{
     display: block;
 }
 .reserve{
-    width: 345px;
     height: 48px;
     border: none;
     font-size: 14px;
@@ -131,10 +142,9 @@ a:active,header button:active{
 }
 .person-rev{
     display: flex;
-    width: 343px;
     border-radius: 12px;
     background-color: #181C20;
-    margin: 10px ;
+    margin: 10px 0px;
     padding: 12px 16px 24px 16px;
     flex-wrap: wrap;
 }

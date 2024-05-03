@@ -1,37 +1,55 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 import Home from '../views/Home/Home.vue';
+import BarbershopPage from "../views/BarbershopPage/BarbershopPage.vue";
+import OrderDate from "../views/OrderDate/OrderDate.vue";
+import Employee from "../views/Employee/Employee.vue";
+import Order from "../views/Order/Order.vue";
 import BarberProfile from '../views/barber/BarberProfile.vue';
-import ServiceCard from '../components/ServiceCard/ServiceCard.vue';
-import ServiceCardWithoutImage from '../components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue';
+import ServiceCard from '../components/ServiceCard/card.vue';
+import ServiceCardWithoutImage from '../components/ServiceCardWithoutImage/CardWithoutImage.vue';
+import Auth from '../views/Auth/Auth.vue';
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            component: Home,
-        },
-        {
-            path: '/servicecard',
-            component: ServiceCard,
-        },
-        {
-            path: '/servicecard/withoutimage',
-            component: ServiceCardWithoutImage,
-        },
-        {
-            path: '/barberprofile',
-            component: BarberProfile,
-        },
-        // {
-        //     path: '/auth/registration/',
-        //     component: Home,
-        // },
-        // {
-        //     path: '/auth/login',
-        //     component: Home,
-        // },
-    ],
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      component: Home,
+    },
+    {
+      path: '/barbershop',
+      component: BarbershopPage,
+    },
+    {
+      path: '/services/',
+      component: ServiceCard,
+    },
+    {
+      path: '/services2/',
+      component: ServiceCardWithoutImage,
+    },
+    {
+      path: '/barber/',
+      component: BarberProfile,
+    },
+    {
+      path: '/order/date',
+      component: OrderDate,
+    },
+    {
+      path: '/employee',
+      component: Employee,
+    },
+    {
+      path: '/order',
+      component: Order,
+    },
+    {
+      path: '/auth',
+      component: Auth,
+    },
+
+  ],
 });
 
 export default router;

@@ -1,12 +1,17 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router/index.js'
 import PrimeVue from 'primevue/config'
 import 'primevue/resources/themes/aura-dark-blue/theme.css';
+import 'primeicons/primeicons.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import ToastService from 'primevue/toastservice';
+
 
 createApp(App)
-    .use(router)
-    .use(PrimeVue)
-    
-    .mount('#app')
+  .use(router)
+  .use(ToastService)
+  .use(PrimeVue)
+  .mount('#app')
+

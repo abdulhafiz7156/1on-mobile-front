@@ -1,11 +1,4 @@
-
 .barbershop__image__address {
-
-    width: 100% !important;
-    margin-top: 55  px;
-}
-
-.barbershop__image {
     background-image: url("../../assets/images/barbershop2.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -13,8 +6,28 @@
     height: 300px;
 }
 
-
-.container {
-    margin-top: 20px;
-
+.barbershop__image {
+    position: absolute;
+    top: 230px;
+    padding: 20px;
 }
+
+.all__staff {
+    color: #9CCBFB;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.p-sidebar-header {
+    justify-content: center;
+}
+
+
+.sidebar {
+    height: 90%;
+    background: #181C20;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    padding: 0px 20px 20px 20px;
+}
+
