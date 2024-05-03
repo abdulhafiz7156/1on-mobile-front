@@ -1,6 +1,5 @@
 <template>
-  <!--  :closable="false"-->
-  <Dialog class="popup" v-model:visible="visible" modal header="Telefon raqamingizni kiriting"
+  <Dialog class="popup" v-model:visible="visible" modal header="Telefon raqamingizni kiriting" :dismissableMask="true" :closable="false"
           :style="{ width: '95%', padding: '16px'}">
     <template #header>
       <h1 class="popup__title">Telefon raqamingizni kiriting</h1>
@@ -25,7 +24,7 @@
   </Dialog>
 
 
-  <Dialog v-model:visible="name" modal header="Qo’shimcha ma’lumotlar"
+  <Dialog v-model:visible="name" modal header="Qo’shimcha ma’lumotlar" :dismissableMask="true" :closable="false"
           :style="{ width: '95%', padding: '16px'}">
     <template #header>
       <h1 class="popup__title">Qo’shimcha ma’lumotlar</h1>
@@ -47,7 +46,7 @@
   </Dialog>
 
 
-  <Dialog v-model:visible="code" modal header="Telefon raqamingizni tasdiqlang!"
+  <Dialog v-model:visible="code" modal header="Telefon raqamingizni tasdiqlang!" :dismissableMask="true" :closable="false"
           :style="{ width: '95%', padding: '16px'}">
     <template #header>
       <h1 class="popup__title">Telefon raqamingizni tasdiqlang!</h1>
@@ -138,7 +137,6 @@ export default {
 
 
     const checkCode = () => {
-      console.log(invalidcodeinp.value, invalidcodeinp.value.length)
       if (invalidcodeinp.value.length < 4) {
         invalidcode.value = true
       } else {
