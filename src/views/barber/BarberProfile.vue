@@ -23,7 +23,13 @@
             </div>
         </div>
         <h3 class="h3">Fikrlar</h3>
-        <div class="reviews" id='v-for="(el,index) in array" :key="index"' > 
+        <div class="reviews"> 
+            <div class="person-rev">
+                <b>M</b>
+                <h3>Mamurov Ismoilbek</h3>
+                <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
+                <img class="img" src="/src/assets/icons/5-stars-icon.svg">
+            </div>
             <div class="person-rev">
                 <b>M</b>
                 <h3>Mamurov Ismoilbek</h3>
@@ -31,28 +37,12 @@
                 <img class="img" src="/src/assets/icons/5-stars-icon.svg">
             </div>
         </div>
-        <div class="person-rev">
-            <b>M</b>
-            <h3>Mamurov Ismoilbek</h3>
-            <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
-            <img class="img" src="/src/assets/icons/5-stars-icon.svg">
-        </div>
         <button class="reserve">Bron qilish</button>
     </div>
 </template>
 
 <style scoped>
-*{
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    color: #E3E1E9;
-    background: transparent;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
 #all{
-    width: 345px;
     display: grid;
     justify-items: center;
 }

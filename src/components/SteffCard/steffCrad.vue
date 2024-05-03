@@ -57,7 +57,7 @@
         margin-right: 8px;
     }
     b{
-        width: 40px;
+        min-width: 40px;
         height: 40px;
         display: flex;
         align-items:center;

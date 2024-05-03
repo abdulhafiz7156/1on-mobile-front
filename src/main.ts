@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import 'primeicons/primeicons.css'
 import router from './router/index.js'
 import PrimeVue from 'primevue/config'
 import 'primevue/resources/themes/aura-dark-blue/theme.css';

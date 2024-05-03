@@ -7,11 +7,17 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArchivedOrder: typeof import('./src/components/archivedOrder/archivedOrder.vue')['default']
     Card: typeof import('./src/components/ServiceCard/card.vue')['default']
     CardWithoutImage: typeof import('./src/components/ServiceCardWithoutImage/CardWithoutImage.vue')['default']
+    FloatLabel: typeof import('primevue/floatlabel')['default']
     Header: typeof import('./src/components/Header/Header.vue')['default']
     HomeCard: typeof import('./src/components/HomeCard/HomeCard.vue')['default']
+    InputText: typeof import('primevue/inputtext')['default']
     NavigationBar: typeof import('./src/components/NavigationBar/NavigationBar.vue')['default']
+    NotificationsCard: typeof import('./src/components/notificationsCard/notificationsCard.vue')['default']
+    OraderPage: typeof import('./src/components/OrderPage/OraderPage.vue')['default']
+    OrderPage: typeof import('./src/components/OrderPage/orderPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ServiceCard: typeof import('./src/components/ServiceCard/ServiceCard.vue')['default']
