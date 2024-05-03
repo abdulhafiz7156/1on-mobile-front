@@ -27,4 +27,31 @@
     font-size: 22px;
 }
 
+.header__sidebar ul {
+    border-bottom: 1px solid #42474E;
+}
 
+.header__sidebar li{
+    list-style: none;
+    width: 327px;
+    height: 56px;
+    padding: 16px 24px 16px 16px;
+    border-radius: 100px;
+}
+
+.header__sidebar li i {
+    margin-right: 10px;
+}
+
+.header__sidebar h5 {
+    font-weight: 400;
+}
+
+.header__sidebar__li__active {
+    background: #3A4857;
+}
+
+.header__sidebar__notification {
+    width: 100%;
+
+}
