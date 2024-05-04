@@ -1,24 +1,36 @@
 <template>
   <div class="header__pages">
     <div class="df__jcc__aic">
-      <i class="bi bi-arrow-left"></i>
+      <i class="bi bi-arrow-left" @click="redirectPreventPage()"></i>
       <p><slot></slot></p>
     </div>
     <div class="header__pages__right">
-      <i v-if="rightVisible" :class="rightIcon"></i>
+      <i v-if="rightVisible" :class="rightIcon" @click="$emit('redirectPage')"></i>
       <i v-if="shareIcon" class="bi bi-share"></i>
     </div>
   </div>
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
   props:{
     rightVisible: Boolean,
     rightIcon: String,
     shareIcon: Boolean,
   },
-  name: "HeaderPages"
+  name: "HeaderPages",
+  setup() {
+    const router = useRouter();
+    const redirectPreventPage = () => {
+      router.go(-1)
+    }
+    return {
+      redirectPreventPage,
+    }
+
+  }
 }
 </script>
 

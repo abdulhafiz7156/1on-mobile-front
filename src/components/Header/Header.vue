@@ -23,7 +23,7 @@
         <li><a href="/"><i class="bi bi-circle-fill"></i>Asosiy</a></li>
         <li><a href="/barbershop"><i class="bi bi-scissors"></i>Barbershoplar</a></li>
         <li><a href="/order/"><i class="bi bi-clock"></i>Uchrashuv (Bron) tarixi</a></li>
-        <li><a href="/order/"></a><i class="bi bi-calendar2-event"></i>Faol uchrashuvlar</li>
+        <li><a href="/order/"><i class="bi bi-calendar2-event"></i>Faol uchrashuvlar</a></li>
       </ul>
       <h5 class="container">Tizim</h5>
       <ul>
@@ -39,7 +39,7 @@
       class="header__sidebar__notification"
   >
     <div class="container">
-      <HeaderPages right-visible="true" right-icon="bi bi-check-lg" class="">Bildirishnomalar</HeaderPages>
+      <HeaderPages right-visible="true" right-icon="bi bi-check-lg" @redirect-page="closePopup()" class="">Bildirishnomalar</HeaderPages>
       <NotificationCard/>
       <NotificationCard/>
       <NotificationCard/>
@@ -63,9 +63,13 @@ export default {
   setup(){
     const visibleLeft = ref(false)
     const visibleNotificationPopup = ref(false)
+    const closePopup = () => {
+      visibleNotificationPopup.value = false
+    }
     return {
       visibleLeft,
-      visibleNotificationPopup
+      visibleNotificationPopup,
+      closePopup
     }
 
   }
