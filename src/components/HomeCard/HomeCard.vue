@@ -1,5 +1,5 @@
 <template>
-  <div class="home__card" v-for="(card, index) in cards" :key="index">
+  <div class="home__card" v-for="(card, index) in cards" :key="index" @click="redirectBarbershop()">
     <div class="home__card__logo__rate__address df">
       <img src="../../assets/images/barbershop__logo.png" alt="">
       <div class="home__card__name__rate__address">
@@ -34,6 +34,7 @@
 
 <script>
 import "./HomeCard.css"
+import {useRouter} from "vue-router";
 
 export default {
   props: {
@@ -43,8 +44,17 @@ export default {
     }
   },
   setup() {
+    const router = useRouter()
 
+    const redirectBarbershop = () => {
+      router.push('/barbershop')
+    }
 
+    return {
+      redirectBarbershop,
+      router
+
+    }
   }
 }
 </script>

@@ -1,10 +1,14 @@
 
+.home__cards .home__card:last-child {
+    margin-bottom: 100px;
+
+}
+
 .home__card{
     background: rgba(28, 32, 36, 1);
     border-radius: 10px;
     border: 1px solid rgba(66, 71, 78, 1);
     margin: 20px 0;
-    padding-bottom: 15px;
 }
 
 .home__card:first-child {
@@ -43,10 +47,11 @@
 .home__card__time div p{
     background: rgba(58, 72, 87, 1);
     padding: 7px 10px;
-    border-radius: 13px;
+    border-radius: 30px;
     text-align: center;
     width: 50px;
     margin: 10px 10px 0 0
+
 }
 
 .home__card__time div{
@@ -62,7 +67,7 @@
 .home__card__time__button {
     justify-content: space-between;
     flex-wrap: nowrap;
-    padding: 20px 20px 0px 20px;
+    padding: 10px 20px 10px 20px;
 }
 
 .home__card__button button {

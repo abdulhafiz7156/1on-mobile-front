@@ -2,12 +2,20 @@
     padding-top: 70px;
 }
 
-
-
 .p-tabview-nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    text-align: center;
 }
+.p-tabview-nav li{
+    width: 50%;
+}
+
+.p-tabview-nav li a {
+    display: flex;
+    justify-content: center;
+}
+
 
 .p-tabview-nav a{
     padding: 20px;
@@ -25,5 +33,10 @@
 
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
     background: transparent !important
+
+}
+
+.p-tabview-ink-bar {
+    width: 50% !important;
 
 }

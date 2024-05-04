@@ -71,7 +71,7 @@ export default{
   components: {HomeCard, NavigationBar, Header},
   setup (){
     const title = ref("1on.uz")
-    const notificationPopup = ref(true)
+    const notificationPopup = ref(false)
     const isOpen = ref([false, false, false]);
     const selectedOptions = ref([null, null, null]);
     const options = ref([

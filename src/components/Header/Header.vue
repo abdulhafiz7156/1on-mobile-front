@@ -22,14 +22,14 @@
       <ul>
         <li><a href="/"><i class="bi bi-circle-fill"></i>Asosiy</a></li>
         <li><a href="/barbershop"><i class="bi bi-scissors"></i>Barbershoplar</a></li>
-        <li><i class="bi bi-clock"></i>Uchrashuv (Bron) tarixi</li>
-        <li><i class="bi bi-calendar2-event"></i>Faol uchrashuvlar</li>
+        <li><a href="/order/"><i class="bi bi-clock"></i>Uchrashuv (Bron) tarixi</a></li>
+        <li><a href="/order/"></a><i class="bi bi-calendar2-event"></i>Faol uchrashuvlar</li>
       </ul>
       <h5 class="container">Tizim</h5>
       <ul>
-        <li><i class="bi bi-gear"></i>Sozlamalar</li>
-        <li><i class="bi bi-bell"></i>Bildirishnomalar</li>
-        <li><i class="bi bi-globe"></i>Til: Ozbekcha</li>
+        <li><a href=""><i class="bi bi-gear"></i>Sozlamalar</a></li>
+        <li><a href=""><i class="bi bi-bell"></i>Bildirishnomalar</a></li>
+        <li><a href=""><i class="bi bi-globe"></i>Til: Ozbekcha</a></li>
       </ul>
     </div>
   </Sidebar>

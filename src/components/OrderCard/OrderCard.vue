@@ -29,13 +29,8 @@
     <NotificationCard />
     <p class="sidebar__p">Nega bekor qilmoqchisiz?</p>
 
-    <Dropdown v-model="selectedCity"
-              :options="cities"
-              optionLabel="name"
-              placeholder="Sababi"
-              class="w-full md:w-14rem custom__dropdown"
+    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem custom__dropdown " />
 
-    />
     <div class="df order__card__buttons">
       <Button>Bekor qilish</Button>
       <Button @click="visibleTop = false">Ortga qaytish</Button>
