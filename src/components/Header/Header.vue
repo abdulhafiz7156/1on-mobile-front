@@ -72,9 +72,9 @@ export default {
     title: String
   },
   setup(){
-    const visibleLeft = ref(true)
+    const visibleLeft = ref(false)
     const visibleNotificationPopup = ref(false)
-    const selectedLanguage = ref()
+    const selectedLanguage = ref("Language")
 
     const closePopup = () => {
       visibleNotificationPopup.value = false
