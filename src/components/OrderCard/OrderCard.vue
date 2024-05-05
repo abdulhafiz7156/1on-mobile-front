@@ -33,7 +33,7 @@
 
     <div class="df order__card__buttons">
       <Button>{{$t('orderCardCancelButton')}}</Button>
-      <Button @click="visibleTop = false">{{$('orderCardBacktoBack')}}</Button>
+      <Button @click="visibleTop = false">{{$t('orderCardBacktoBack')}}</Button>
     </div>
 
   </Sidebar>
