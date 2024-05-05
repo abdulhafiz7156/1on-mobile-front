@@ -9,22 +9,22 @@
 
 <template>
     <div class="all">
-      <HeaderPages>Xizmat tanlash</HeaderPages>
-      <h4>Asosiy xizmatlar</h4>
+      <HeaderPages>$t('ServiceCardWithoutImageChoiceService')</HeaderPages>
+      <h4>{{$t('barbershopPageAllServices')}}</h4>
         <div class="cards_2">
             <CardWI/>
             <CardWI/>
             <CardWI/>
             <CardWI/>
         </div>
-        <h4>Qo’shimcha xizmatlar</h4>
+        <h4>{{$t('ServiceCardWithoutImageAdditionalServices')}}</h4>
         <div class="cards_2">
             <CardWI/>
             <CardWI/>
             <CardWI/>
             <CardWI/>
         </div>
-        <Button>Tasdiqlash</Button>
+        <Button>{{$t('confirmButton')}}</Button>
     </div>
 </template>
 

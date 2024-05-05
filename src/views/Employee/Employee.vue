@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <HeaderPages>Hodimlar</HeaderPages>
+    <HeaderPages>{{ $t('employee') }}</HeaderPages>
     <div class="employee__cards">
       <StaffCard :plusVisible="true" />
       <StaffCard :plusVisible="true" />

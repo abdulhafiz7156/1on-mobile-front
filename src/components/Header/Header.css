@@ -27,7 +27,7 @@
     font-size: 22px;
 }
 
-.header__sidebar ul {
+.header__sidebar ul:first-child {
     border-bottom: 1px solid #42474E;
 }
 
@@ -37,6 +37,20 @@
     height: 56px;
     padding: 16px 24px 16px 16px;
     border-radius: 100px;
+}
+
+.header__panel__menu li:first-child {
+    margin-top: 20px;
+}
+
+.header__panel__menu li {
+    padding: 0px 0px 0px 25px !important;
+    /*background-color: red;*/
+}
+
+.header__unique__class{
+    padding: 0px 24px 0px 16px !important;
+    /*background-color: red;*/
 }
 
 .header__sidebar li i {
@@ -53,5 +67,12 @@
 
 .header__sidebar__notification {
     width: 100%;
+}
 
+.p-panelmenu-content {
+    background-color: transparent;
+}
+
+.p-panelmenu-header-content {
+    background-color: transparent;
 }

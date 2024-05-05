@@ -9,15 +9,15 @@ export default {
 <template>
 <div class="order">
     <div class="ifnone">
-        <HeaderPages>Uchrashuvni baholang</HeaderPages>
+        <HeaderPages>{{$t('rateOrder')}}</HeaderPages>
         <main>
             <div class="info">
-                <div id="status" class="df__jcc__aic">Yakunlangan</div>
+                <div id="status" class="df__jcc__aic">{{$t('statusCompleted')}}</div>
                 <div class="status_date">
                     <h5>14-Fevral: 12:30 da</h5>
                     <h4>Topor barbershop</h4>
                     <p>Xizmat: Soch turmagi, Soqol olish</p>
-                    <p>Barber: Farrux</p>
+                    <p>{{$t('barber')}}: Farrux</p>
                 </div>
             </div>
             <div>
@@ -31,11 +31,11 @@ export default {
                 </div>
                 <div class="person-rev">
                     <div class="input-container">
-                        <textarea placeholder="Fikringizni qoldiring" maxlength="235"></textarea>
+                        <textarea :placeholder="$t('rateOrderLeaveReview')" maxlength="235"></textarea>
                     </div>
                 </div>
             </div>
-          <Button>Tasdiqlash</Button>
+          <Button>{{ $t('confirmButton') }}</Button>
         </main>
     </div>
 </div>

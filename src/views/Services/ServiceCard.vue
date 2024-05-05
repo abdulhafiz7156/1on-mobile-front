@@ -11,22 +11,22 @@
 
 <template>
     <div class="all">
-        <HeaderPages>Xizmat tanlash</HeaderPages>
-        <h4>Asosiy xizmatlar</h4>
+        <HeaderPages>{{$t('ServiceCardWithoutImageChoiceService')}}</HeaderPages>
+        <h4>{{$t('barbershopPageAllServices')}}</h4>
         <div class="cards">
             <Card/>
             <Card/>
             <Card/>
             <Card/>
         </div>
-        <h4>Qo’shimcha xizmatlar</h4>
+        <h4>{{$t('barbershopPageAllServices')}}</h4>
         <div class="cards">
             <Card/>
             <Card/>
             <Card/>
             <Card/>
         </div>
-      <Button>Tasdiqlash</Button>
+      <Button>{{$t('confirmButton')}}</Button>
     </div>
 </template>
 

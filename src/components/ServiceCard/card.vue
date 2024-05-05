@@ -22,7 +22,7 @@
         <img src="/src/assets/images/Thumbnail.svg" alt="" width="56px" height="56px">
         <div>
             <p>Soch turmagi</p>
-            <p>45 min | 200 000 so’m</p>
+            <p>45 {{$t('minute')}} | 200 000 {{$t('currency')}} </p>
         </div>
      </div>
         <img @click="addOrDelete" :src="imageUrl" alt="">

@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <HeaderPages>Vaqt tanlash</HeaderPages>
+    <HeaderPages>{{$t('orderDateChoiceTime')}}</HeaderPages>
     <div>
-      <h4 class="calendar__title">Kunni tanlang</h4>
+      <h4 class="calendar__title">{{$t('orderDateChoiceDay')}}</h4>
       <div class="calendar">
         <div class="calendar__choice__day">{{formattedDate ? formattedDate : today}}</div>
         <Calendar v-model="date" inline id="calendar" @date-select="hanldeCalendarChanges($event)"/>
       </div>
     </div>
     <div>
-      <h4>Vaqtni tanlang</h4>
+      <h4>{{$t('orderDateChoiceTime')}} </h4>
       <div class="calendar__time df">
         <div>8:30</div>
         <div>8:30</div>
@@ -25,7 +25,7 @@
         <div  class="deactive__div">8:30</div>
       </div>
     </div>
-    <Button>Tasdiqlash</Button>
+    <Button>{{$t('confirmButton')}}</Button>
   </div>
 </template>
 

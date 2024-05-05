@@ -2,7 +2,7 @@
   <Header :title="title"></Header>
   <div class="container">
     <div class="home__search__div__input">
-      <input type="text" class="home__search__input" placeholder="Qidirish">
+      <input type="text" class="home__search__input" :placeholder="$t('homeSearch')">
     </div>
     <div class="home__notification__popup" v-if="notificationPopup">
       <p>Bugun 9:00 da Topor barberda uchrashuv bor esingizdan chiqarmang.</p>
@@ -13,7 +13,7 @@
         <div class="custom-select-wrapper">
           <div class="custom-select" @click="toggleOptions(1)">
             <img src="../../assets/icons/clipper.svg" alt="Left Icon">
-            <div class="selected-option">{{ selectedOptions[1] ? selectedOptions[1] : 'Servislar' }}</div>
+            <div class="selected-option">{{ selectedOptions[1] ? selectedOptions[1] : $t('services') }}</div>
             <img src="../../assets/icons/select-icon.svg" alt="Right Icon">
           </div>
           <div v-if="isOpen[1]" class="custom-options">
@@ -27,7 +27,7 @@
         <div class="custom-select-wrapper">
           <div class="custom-select" @click="toggleOptions(2)">
             <img src="../../assets/icons/star.png" alt="Left Icon">
-            <div class="selected-option">{{ selectedOptions[2] ? selectedOptions[2] : 'Reyting' }}</div>
+            <div class="selected-option">{{ selectedOptions[2] ? selectedOptions[2] : $t('rating') }}</div>
             <img src="../../assets/icons/select-icon.svg" alt="Right Icon">
           </div>
           <div v-if="isOpen[2]" class="custom-options">
@@ -41,7 +41,7 @@
         <div class="custom-select-wrapper">
           <div class="custom-select" @click="toggleOptions(3)">
             <img src="../../assets/icons/star.png" alt="Left Icon">
-            <div class="selected-option">{{ selectedOptions[3] ? selectedOptions[3] : 'Filter' }}</div>
+            <div class="selected-option">{{ selectedOptions[3] ? selectedOptions[3] : $t('filter') }}</div>
             <img src="../../assets/icons/select-icon.svg" alt="Right Icon">
           </div>
           <div v-if="isOpen[3]" class="custom-options">

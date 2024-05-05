@@ -1,19 +1,19 @@
 <template>
-  <Dialog class="popup" v-model:visible="visible" modal header="Telefon raqamingizni kiriting" :dismissableMask="true" :closable="false"
+  <Dialog class="popup" v-model:visible="visible" modal :header="$t('authEnterPhoneNumber')" :dismissableMask="true" :closable="false"
           :style="{ width: '95%', padding: '16px'}">
     <template #header>
-      <h1 class="popup__title">Telefon raqamingizni kiriting</h1>
+      <h1 class="popup__title">{{$t('authEnterPhoneNumber')}}</h1>
     </template>
     <form @submit.prevent="checkPhone">
       <div class="flex-auto">
-        <div v-if="invalid" style="color: var(--red-600)">Telefon raqami notog’ri kiritilgan!</div>
+        <div v-if="invalid" style="color: var(--red-600)">{{$t('authEnteredPhoneNumberWrong')}}</div>
         <InputMask type="text" class="phone" v-model="phonenum" mask="(99) 999-99-99" placeholder="(99) 999-99-99"/>
       </div>
 
-      <Button type="submit" class="auth__button">Yuborish</Button>
+      <Button type="submit" class="auth__button">{{ $t('authSendButton') }}</Button>
     </form>
     <div class="auth__socials">
-      <p class="subtitle">Kirishning boshqa yo’llari</p>
+      <p class="subtitle">{{$t('authAnotherWaystoEnter')}}</p>
       <div class="socials-icons">
         <Toast/>
         <img src="../../assets/images/authicons/google.png" alt="">
@@ -24,43 +24,43 @@
   </Dialog>
 
 
-  <Dialog v-model:visible="name" modal header="Qo’shimcha ma’lumotlar" :dismissableMask="true" :closable="false"
+  <Dialog v-model:visible="name" modal :header="$t('authAdditionalInfo')" :dismissableMask="true" :closable="false"
           :style="{ width: '95%', padding: '16px'}">
     <template #header>
-      <h1 class="popup__title">Qo’shimcha ma’lumotlar</h1>
+      <h1 class="popup__title">{{$t('authAdditionalInfo')}}</h1>
     </template>
     <form @submit.prevent="submitForm">
       <div class="flex-auto">
-        <div v-if="submitted && !isNameValid" style="color: var(--red-600)">Name is required.</div>
-        <InputText type="text" v-on:keypress="isLetter($event)" v-model="username" class="phone" placeholder="Ism" invalid></InputText>
+        <div v-if="submitted && !isNameValid" style="color: var(--red-600)">{{$t('authNameIsRequired')}}</div>
+        <InputText type="text" v-on:keypress="isLetter($event)" v-model="username" class="phone" :placeholder="$t('name')" invalid></InputText>
       </div>
       <div class="flex-auto">
-        <div v-if="submitted && !isSurNameValid" style="color: var(--red-600)">Surname is required.</div>
-        <InputText type="text" v-model="surname" class="phone" placeholder="Familiya" v-on:keypress="isLetter($event)"/>
+        <div v-if="submitted && !isSurNameValid" style="color: var(--red-600)">{{$t('authSurnameIsRequired')}}</div>
+        <InputText type="text" v-model="surname" class="phone" :placeholder="$t('surname')" v-on:keypress="isLetter($event)"/>
       </div>
       <div class="try-again">
-        <p class="try-again-skip" @click="name = false, code= true, countdown()">O’tkazib yuborish</p>
-        <Button type="submit" class="auth__button name__side">Tasdiqlash</Button>
+        <p class="try-again-skip" @click="name = false, code= true, countdown()">{{$t('authSkipButton')}}</p>
+        <Button type="submit" class="auth__button name__side">{{$t('confirmButton')}}</Button>
       </div>
     </form>
   </Dialog>
 
 
-  <Dialog v-model:visible="code" modal header="Telefon raqamingizni tasdiqlang!" :dismissableMask="true" :closable="false"
+  <Dialog v-model:visible="code" modal :header="$t('authConfirmPhoneNumber')" :dismissableMask="true" :closable="false"
           :style="{ width: '95%', padding: '16px'}">
     <template #header>
-      <h1 class="popup__title">Telefon raqamingizni tasdiqlang!</h1>
+      <h1 class="popup__title">{{ $t('authConfirmPhoneNumber') }}</h1>
     </template>
-    <p class="subtitle">**7753 raqamiga yuborilgan kodni kiriting</p>
+    <p class="subtitle">**7753 {{$t('authEnterKeySentToPhoneNumber')}}</p>
     <form @submit.prevent="checkCode">
       <div class="flex-auto">
-        <div v-if="invalidcode" style="color: var(--red-600)">Tasdiqlash kodi notog’ri</div>
+        <div v-if="invalidcode" style="color: var(--red-600)">{{$t('authCodeConfirmationWrong')}}</div>
         <InputOtp v-model="invalidcodeinp" class="opt" integer-only/>
       </div>
-      <p v-if="getAgain>0" style="color: #E0E2E8;">Qayta yuborish 00:{{ getAgain }}</p>
-      <p v-else style="color: #3B96DD;" @click="ass">Qayta yuborish</p>
+      <p v-if="getAgain>0" style="color: #E0E2E8;">{{$t('authResend')}} 00:{{ getAgain }}</p>
+      <p v-else style="color: #3B96DD;" @click="ass">{{ $t('authResend') }}</p>
       <div class="try-again">
-        <Button type="submit" class="auth__button" rounded>Tasdiqlash</Button>
+        <Button type="submit" class="auth__button" rounded>{{ $t('confirmButton') }}</Button>
       </div>
     </form>
   </Dialog>

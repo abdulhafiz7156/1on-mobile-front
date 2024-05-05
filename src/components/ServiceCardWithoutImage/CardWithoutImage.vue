@@ -12,7 +12,7 @@
    <div class="card_2">
     <div>
         <p>Soch turmagi</p>
-        <p> 30 min | 150 000 so’m</p>
+        <p>45 {{$t('minute')}} | 200 000 {{$t('currency')}} </p>
     </div>
        <img src="/src/assets/icons/minus.svg" alt="My Image" />
     </div>

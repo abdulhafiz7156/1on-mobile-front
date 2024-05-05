@@ -1,15 +1,15 @@
 <template>
-  <Header :title="headerTitle" ></Header>
+  <Header>{{$t('navigationBarMeets')}}</Header>
   <div>
     <div class="active__archive ">
       <TabView class="tabview">
-        <TabPanel header="Aktiv" class="pi pi-user">
+        <TabPanel :header="$t('active')" class="pi pi-user">
           <div class="container">
             <OrderCard :buttonVisible="true" />
             <OrderCard :buttonVisible="true" />
           </div>
         </TabPanel>
-        <TabPanel header="Yakunlangan" class="container">
+        <TabPanel :header="$t('statusCompleted')" class="container">
           <div class="container">
             <OrderCard />
             <OrderCard />
@@ -32,11 +32,8 @@ export default {
   name: "Order",
   components: {OrderCard, Header, NavigationBar},
   setup() {
-    const headerTitle = ref("Uchrashuvlar")
 
     return {
-      headerTitle
-
     }
   }
 }

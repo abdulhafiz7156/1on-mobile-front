@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Badge: typeof import('primevue/badge')['default']
     Button: typeof import('./src/components/Button/Button.vue')['default']
     Calendar: typeof import('primevue/calendar')['default']
     Card: typeof import('./src/components/ServiceCard/card.vue')['default']
@@ -22,6 +23,7 @@ declare module 'vue' {
     NavigationBar: typeof import('./src/components/NavigationBar/NavigationBar.vue')['default']
     NotificationCard: typeof import('./src/components/NotificationCard/NotificationCard.vue')['default']
     OrderCard: typeof import('./src/components/OrderCard/OrderCard.vue')['default']
+    PanelMenu: typeof import('primevue/panelmenu')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sidebar: typeof import('primevue/sidebar')['default']

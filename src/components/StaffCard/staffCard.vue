@@ -17,7 +17,7 @@
                     <div class="df img__rate">
 <!--                        <img src="/src/assets/icons/star-icon.svg" width="20px" height="20px">-->
                         <i class="bi bi-star"></i>
-                        <p> <span>(4.6)</span> Barber</p>
+                        <p> <span>(4.6)</span> {{ $t('barber') }}</p>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="df bottom">
             <div>
-                <div class="a">Navbat soni: 5</div>
+                <div class="a">{{$t('staffCardQueueCount')}}: 5</div>
             </div>
             <div class="df">
                 <div class="b df__jcc__aic">9:00</div>

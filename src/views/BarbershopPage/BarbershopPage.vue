@@ -10,14 +10,14 @@
 
   <div class="container">
     <div class="staff">
-      <h4>Hodimlar</h4>
+      <h4>{{ $t('employee') }}</h4>
       <StaffCard @click="visibleTop = true"/>
       <StaffCard @click="visibleTop = true"/>
       <StaffCard @click="visibleTop = true"/>
-      <p v-if="allStaff" class="all__staff">+ Barcha hodimlar</p>
+      <p v-if="allStaff" class="all__staff">{{$t('barbershopPageAllEmployee')}}</p>
     </div>
     <div class="services">
-      <h4>Asosiy xizmatlar</h4>
+      <h4>{{$t('barbershopPageAllServices')}}</h4>
       <card/>
       <card/>
       <card/>
@@ -34,7 +34,7 @@
           <StaffCard :plusVisible="plusVisible"/>
           <NotificationCard />
           <NotificationCard />
-          <Button>Tasdiqlash</Button>
+          <Button>{{ $t('confirmButton') }}</Button>
       </Sidebar>
     </div>
   </div>
@@ -54,7 +54,7 @@ export default {
   components: {NotificationCard, card, StaffCard, NavigationBar, Header, Button},
   setup() {
     const headerTitle = ref("Topor barbershop")
-    const allStaff = ref(false)
+    const allStaff = ref(true)
     const visibleTop = ref(false)
     const plusVisible = ref(false)
     return {

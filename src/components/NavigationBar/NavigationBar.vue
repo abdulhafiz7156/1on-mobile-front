@@ -5,19 +5,25 @@
            alt="asosiy"
            :class="{ 'active__navigation__bar': pathname === '/' }"
       >
-      <p :class="{ 'active__navigation__bar__p': pathname === '/' }">Asosiy</p>
+      <p :class="{ 'active__navigation__bar__p': pathname === '/' }">
+        {{$t('navigationBarMain')}}
+      </p>
     </div>
     <div class="navigation__bar" @click="setActive('meets', '/order')">
       <img src="../../assets/icons/calendar.svg" alt="uchrashuvlar"
            :class="{ 'active__navigation__bar': pathname === '/order' }"
       >
-      <p :class="{ 'active__navigation__bar__p': pathname === '/order' }">Uchrashuvlar</p>
+      <p :class="{ 'active__navigation__bar__p': pathname === '/order' }">
+        {{$t('navigationBarMeets')}}
+      </p>
     </div>
     <div class="navigation__bar" @click="setActive('profil', 'profile')">
       <img src="../../assets/icons/user.svg" alt="profil"
            :class="{ 'active__navigation__bar': pathname === 'profile' }"
       >
-      <p :class="{ 'active__navigation__bar__p': pathname === 'profile' }">Profil</p>
+      <p :class="{ 'active__navigation__bar__p': pathname === 'profile' }">
+        {{$t('navigationBarProfile')}}
+      </p>
     </div>
   </div>
 </template>

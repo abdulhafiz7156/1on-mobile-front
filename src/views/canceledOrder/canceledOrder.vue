@@ -12,12 +12,12 @@ export default {
         <HeaderPages>14-Fevral: 12:30 da</HeaderPages>
         <main>
             <div class="info">
-                <div id="status" class="df__jcc__aic">Bekor qilingan</div>
+                <div id="status" class="df__jcc__aic">{{$t('statusCanceled')}}</div>
                 <div class="status_date">
                     <h5>14-Fevral: 12:30 da</h5>
                     <h4>Topor barbershop</h4>
                     <p>Xizmat: Soch turmagi, Soqol olish</p>
-                    <p>Barber: Farrux</p>
+                    <p>{{$t('barber')}}: Farrux</p>
                 </div>
             </div>
         </main>

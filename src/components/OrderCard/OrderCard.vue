@@ -6,19 +6,19 @@
       </div>
       <div class="order__card__title__time">
         <div class="order__card__time df">
-          <p>Bugun: 12:30 da</p>
-          <div class="order__card__time__status confirmed">Tasdiqlangan</div>
+          <p>{{$t('orderCardTime')}} 12:30</p>
+          <div class="order__card__time__status confirmed">{{ $t('statusConfirmed') }}</div>
         </div>
         <div class="order__card__title">
           <h4>Topor barbershop</h4>
-          <p>Xizmat: Soch turmagi, Soqol olish </p>
+          <p>Xizmat: Soch turmagi, Soqol olish</p>
           <p>Barber: Farrux</p>
         </div>
       </div>
     </div>
     <div class="order__card__button df" v-if="buttonVisible">
-      <button @click="visibleTop = true">Bekor qilish</button>
-      <button @click="visibleTopEdit = true">Ozgartirish</button>
+      <button @click="visibleTop = true">{{$t('orderCardCancelButton')}}</button>
+      <button @click="visibleTopEdit = true">{{$t('orderCardEditButton')}}</button>
     </div>
   </div>
   <Sidebar v-model:visible="visibleTop" position="bottom"
@@ -27,13 +27,13 @@
            style="height: 70%;"
   >
     <NotificationCard />
-    <p class="sidebar__p">Nega bekor qilmoqchisiz?</p>
+    <p class="sidebar__p">{{$t('orderCardWhyCancel')}}</p>
 
-    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem custom__dropdown " />
+    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" :placeholder="$t('orderCardCancelReason')" class="w-full md:w-14rem custom__dropdown " />
 
     <div class="df order__card__buttons">
-      <Button>Bekor qilish</Button>
-      <Button @click="visibleTop = false">Ortga qaytish</Button>
+      <Button>{{$t('orderCardCancelButton')}}</Button>
+      <Button @click="visibleTop = false">{{$('orderCardBacktoBack')}}</Button>
     </div>
 
   </Sidebar>
@@ -45,7 +45,7 @@
     <StaffCard/>
     <NotificationCard />
     <NotificationCard />
-    <Button @click="visibleTopEdit = false">Tasdiqlash</Button>
+    <Button @click="visibleTopEdit = false">{{ $t('confirmButton') }}</Button>
   </Sidebar>
 
 </template>

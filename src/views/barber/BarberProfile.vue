@@ -27,15 +27,15 @@
             <h2>Ja’far Rahimov</h2>
             <div class="df img__rate">
                 <img src="/src/assets/icons/star-icon.svg">
-                <p> <span>(4.6)</span> Barber</p>
+                <p> <span>(4.6)</span> {{ $t('barber') }}</p>
             </div>
             <div class="br-services">
-                <h3>Ko’rsatadigan xizmatlari</h3>
+                <h3>{{$t('barberProfileServiceProvided')}}</h3>
                 <img src="/src/assets/icons/arrow-right-icon.svg">
                 <p>Soqol olish, Soch turmagi</p>
             </div>
         </div>
-        <h3 class="h3">Fikrlar</h3>
+        <h3 class="h3">{{ $t('archivedOrderReviews') }}</h3>
         <div class="reviews" id='v-for="(el,index) in array" :key="index"' > 
             <div class="person-rev">
                 <b>M</b>
@@ -50,7 +50,7 @@
             <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
             <img class="img" src="/src/assets/icons/5-stars-icon.svg">
         </div>
-        <Button>Bron qilish</Button>
+        <Button>{{$t('barberProfileBron')}}</Button>
     </div>
 </template>
 

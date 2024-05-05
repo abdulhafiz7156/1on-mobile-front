@@ -33,7 +33,7 @@ export default {
         <main>
           <HeaderPages>14-Fevral: 12:30 da</HeaderPages>
             <div class="info">
-                <div id="status" class="df__jcc__aic">Yakunlangan</div>
+                <div id="status" class="df__jcc__aic">{{$t("statusCompleted")}}</div>
                 <div class="status_date">
                     <h5>14-Fevral: 12:30 da</h5>
                     <h4>Topor barbershop</h4>
@@ -42,7 +42,7 @@ export default {
                 </div>
             </div>
             <div>
-                <h4>Fikrlar</h4>
+                <h4>{{$t('archivedOrderReviews')}}</h4>
                 <div class="person-rev">
                     <div class="df">
                         <b class="df__jcc__aic" >M</b>
@@ -57,7 +57,7 @@ export default {
                 </div>
             </div>
             <div class="images">
-                <h4>Suratlar</h4>
+                <h4>{{$t('archivedOrderImages')}}</h4>
                 <div class="df images-el">
                     <img src="/src/assets/images/Item-1.png" @click="openPopup(1)" width="154px">
                     <img src="/src/assets/images/Item-2.png" @click="openPopup(2)" width="154px">
@@ -70,7 +70,7 @@ export default {
         <button @click="popupStatus = false"><i class="pi pi-arrow-left"></i></button>
         <button><i class="pi pi-trash"></i></button>
         <div :style="{ backgroundImage: 'url(' + imageUrl + ')' }"></div>
-        <p>Yangicha turmag</p>
+        <p>{{$t('archivedOrderNewTourmag')}}</p>
         <!-- <img :src="imageUrl" alt="Полноэкранное изображение"> -->
     </div>
 </div>

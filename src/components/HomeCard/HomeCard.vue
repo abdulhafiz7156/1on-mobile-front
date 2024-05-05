@@ -19,14 +19,16 @@
     </div>
     <div class="home__card__time__button df">
       <div class="home__card__time">
-        <p>Bron qilish vaqti:</p>
+        <p>{{$t('homeCardBronTime')}}:</p>
         <div class="df">
           <p>{{card.bronTime}}</p>
           <p>{{card.bronTime}}</p>
         </div>
       </div>
       <div class="home__card__button">
-        <button><a href="">Bog’lanish</a></button>
+        <button><a href="">
+          {{$t('homeCardConnecting')}}
+        </a></button>
       </div>
     </div>
   </div>
