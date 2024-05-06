@@ -1,74 +1,5 @@
-<template>
-  <Dialog class="popup" v-model:visible="visible" modal header="Telefon raqamingizni kiriting" :dismissableMask="true" :closable="false"
-          :style="{ width: '95%', padding: '16px'}">
-    <template #header>
-      <h1 class="popup__title">Telefon raqamingizni kiriting</h1>
-    </template>
-    <form @submit.prevent="checkPhone">
-      <div class="flex-auto">
-        <div v-if="invalid" style="color: var(--red-600)">Telefon raqami notog’ri kiritilgan!</div>
-        <InputMask type="text" class="phone" v-model="phonenum" mask="(99) 999-99-99" placeholder="(99) 999-99-99"/>
-      </div>
 
-      <Button type="submit" class="auth__button">Yuborish</Button>
-    </form>
-    <div class="auth__socials">
-      <p class="subtitle">Kirishning boshqa yo’llari</p>
-      <div class="socials-icons">
-        <Toast/>
-        <img src="../../assets/images/authicons/google.png" alt="">
-        <img @click="show()" src="../../assets/images/authicons/apple.png" alt="">
-        <img @click="show()" src="../../assets/images/authicons/facebook.png" alt="">
-      </div>
-    </div>
-  </Dialog>
-
-
-  <Dialog v-model:visible="name" modal header="Qo’shimcha ma’lumotlar" :dismissableMask="true" :closable="false"
-          :style="{ width: '95%', padding: '16px'}">
-    <template #header>
-      <h1 class="popup__title">Qo’shimcha ma’lumotlar</h1>
-    </template>
-    <form @submit.prevent="submitForm">
-      <div class="flex-auto">
-        <div v-if="submitted && !isNameValid" style="color: var(--red-600)">Name is required.</div>
-        <InputText type="text" v-on:keypress="isLetter($event)" v-model="username" class="phone" placeholder="Ism" invalid></InputText>
-      </div>
-      <div class="flex-auto">
-        <div v-if="submitted && !isSurNameValid" style="color: var(--red-600)">Surname is required.</div>
-        <InputText type="text" v-model="surname" class="phone" placeholder="Familiya" v-on:keypress="isLetter($event)"/>
-      </div>
-      <div class="try-again">
-        <p class="try-again-skip" @click="name = false, code= true, countdown()">O’tkazib yuborish</p>
-        <Button type="submit" class="auth__button name__side">Tasdiqlash</Button>
-      </div>
-    </form>
-  </Dialog>
-
-
-  <Dialog v-model:visible="code" modal header="Telefon raqamingizni tasdiqlang!" :dismissableMask="true" :closable="false"
-          :style="{ width: '95%', padding: '16px'}">
-    <template #header>
-      <h1 class="popup__title">Telefon raqamingizni tasdiqlang!</h1>
-    </template>
-    <p class="subtitle">**7753 raqamiga yuborilgan kodni kiriting</p>
-    <form @submit.prevent="checkCode">
-      <div class="flex-auto">
-        <div v-if="invalidcode" style="color: var(--red-600)">Tasdiqlash kodi notog’ri</div>
-        <InputOtp v-model="invalidcodeinp" class="opt" integer-only/>
-      </div>
-      <p v-if="getAgain>0" style="color: #E0E2E8;">Qayta yuborish 00:{{ getAgain }}</p>
-      <p v-else style="color: #3B96DD;" @click="ass">Qayta yuborish</p>
-      <div class="try-again">
-        <Button type="submit" class="auth__button" rounded>Tasdiqlash</Button>
-      </div>
-    </form>
-  </Dialog>
-
-
-</template>
-
-<script>
+<script setup>
 import {ref, computed} from 'vue'
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
@@ -80,8 +11,6 @@ import {googleSdkLoaded} from "vue3-google-login";
 import axios from "axios";
 import {useRouter} from "vue-router";
 
-export default {
-  setup(){
     const router = useRouter();
     const visible = ref(true)
     const name = ref(false)
@@ -178,10 +107,89 @@ export default {
         router.push('/')
       })
     }
-  }
-
-}
 </script>
+
+<template>
+  <Dialog
+    class="popup"
+    v-model:visible="visible"
+    modal header="Telefon raqamingizni kiriting"
+    :dismissableMask="true"
+    :closable="false"
+    :style="{ width: '95%', padding: '16px'}"
+  >
+    <template #header>
+      <h1 class="popup__title">Telefon raqamingizni kiriting</h1>
+    </template>
+    <form @submit.prevent="checkPhone">
+      <div class="flex-auto">
+        <div v-if="invalid" style="color: var(--red-600)">Telefon raqami notog’ri kiritilgan!</div>
+        <InputMask type="text" class="phone" v-model="phonenum" mask="(99) 999-99-99" placeholder="(99) 999-99-99"/>
+      </div>
+      <Button type="submit" class="auth__button">Yuborish</Button>
+    </form>
+    <div class="auth__socials">
+      <p class="subtitle">Kirishning boshqa yo’llari</p>
+      <div class="socials-icons">
+        <Toast/>
+        <button @click="signInWithGoogle" class="pi pi-google"></button>
+        <button class="pi pi-apple"></button>
+        <button class="pi pi-facebook"></button>
+      </div>
+    </div>
+  </Dialog>
+
+  <Dialog
+    v-model:visible="name"
+    modal
+    header="Qo’shimcha ma’lumotlar"
+    :dismissableMask="true"
+    :closable="false"
+    :style="{ width: '95%', padding: '16px'}"
+  >
+    <template #header>
+      <h1 class="popup__title">Qo’shimcha ma’lumotlar</h1>
+    </template>
+    <form @submit.prevent="submitForm">
+      <div class="flex-auto">
+        <div v-if="submitted && !isNameValid" style="color: var(--red-600)">Name is required.</div>
+        <InputText type="text" v-on:keypress="isLetter($event)" v-model="username" class="phone" placeholder="Ism" invalid></InputText>
+      </div>
+      <div class="flex-auto">
+        <div v-if="submitted && !isSurNameValid" style="color: var(--red-600)">Surname is required.</div>
+        <InputText type="text" v-model="surname" class="phone" placeholder="Familiya" v-on:keypress="isLetter($event)"/>
+      </div>
+      <div class="try-again">
+        <p class="try-again-skip" @click="name = false, code= true, countdown()">O’tkazib yuborish</p>
+        <Button type="submit" class="auth__button name__side">Tasdiqlash</Button>
+      </div>
+    </form>
+  </Dialog>
+
+  <Dialog
+    v-model:visible="code"
+    modal
+    header="Telefon raqamingizni tasdiqlang!"
+    :dismissableMask="true"
+    :closable="false"
+    :style="{ width: '95%', padding: '16px'}">
+    <template #header>
+      <h1 class="popup__title">Telefon raqamingizni tasdiqlang!</h1>
+    </template>
+    <p class="subtitle">**7753 raqamiga yuborilgan kodni kiriting</p>
+    <form @submit.prevent="checkCode">
+      <div class="flex-auto">
+        <div v-if="invalidcode" style="color: var(--red-600)">Tasdiqlash kodi notog’ri</div>
+        <InputOtp v-model="invalidcodeinp" class="opt" integer-only/>
+      </div>
+      <p v-if="getAgain>0" style="color: #E0E2E8;">Qayta yuborish 00:{{ getAgain }}</p>
+      <p v-else style="color: #3B96DD;" @click="ass">Qayta yuborish</p>
+      <div class="try-again">
+        <Button type="submit" class="auth__button" rounded>Tasdiqlash</Button>
+      </div>
+    </form>
+  </Dialog>
+</template>
 
 <style lang="scss">
 .opt {
@@ -201,7 +209,8 @@ export default {
   padding: 14px 0;
   background: #9CCBFB;
   border: 0;
-
+  display: flex;
+  justify-content: center;
   span {
     color: #003354;
   }
