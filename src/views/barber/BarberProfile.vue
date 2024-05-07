@@ -17,21 +17,21 @@
 <template>
     <div id="all">
       <HeaderPages
-          :right-icon="rightIcon"
-          :right-visible="true"
-          :share-icon="true"
+        :right-icon="rightIcon"
+        :right-visible="true"
+        :share-icon="true"
       ></HeaderPages>
         <div class="info">
             <img src="/src/assets/images/avatar.svg" alt="Avatar" class="avatar">
             <h2>Ja’far Rahimov</h2>
             <div class="df img__rate">
-                <img src="/src/assets/icons/star-icon.svg">
-                <p> <span>(4.6)</span> {{ $t('barber') }}</p>
+              <img src="/src/assets/icons/star-icon.svg">
+              <p> <span>(4.6)</span> {{ $t('barber') }}</p>
             </div>
             <div class="br-services">
-                <h3>{{$t('barberProfileServiceProvided')}}</h3>
-                <img src="/src/assets/icons/arrow-right-icon.svg">
-                <p>Soqol olish, Soch turmagi</p>
+              <h3>{{$t('barberProfileServiceProvided')}}</h3>
+              <img src="/src/assets/icons/arrow-right-icon.svg">
+              <p>Soqol olish, Soch turmagi</p>
             </div>
         </div>
         <h3 class="h3">{{ $t('archivedOrderReviews') }}</h3>

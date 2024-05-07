@@ -1,11 +1,13 @@
 .navigation__bars {
     background: #1C2024;
     width: 100%;
-    bottom: 0px;
+    bottom: 0;
     padding: 12px 20px 16px 20px;
     text-align: center;
     position: fixed;
     justify-content: space-between;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .active__navigation__bar {

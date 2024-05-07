@@ -21,10 +21,12 @@
       <button @click="visibleTopEdit = true">{{$t('orderCardEditButton')}}</button>
     </div>
   </div>
-  <Sidebar v-model:visible="visibleTop" position="bottom"
-           class="sidebar"
-           close-icon="pi pi-minus"
-           style="height: 70%;"
+  <Sidebar
+    v-model:visible="visibleTop"
+    position="bottom"
+    class="sidebar"
+    close-icon="pi pi-minus"
+    style="height: 70%;"
   >
     <NotificationCard />
     <p class="sidebar__p">{{$t('orderCardWhyCancel')}}</p>
@@ -37,10 +39,12 @@
     </div>
 
   </Sidebar>
-  <Sidebar v-model:visible="visibleTopEdit" position="bottom"
-           class="sidebar"
-           close-icon="pi pi-minus"
-           style="height: 70%;"
+  <Sidebar
+    v-model:visible="visibleTopEdit"
+    position="bottom"
+    class="sidebar"
+    close-icon="pi pi-minus"
+    style="height: 70%;"
   >
     <StaffCard/>
     <NotificationCard />

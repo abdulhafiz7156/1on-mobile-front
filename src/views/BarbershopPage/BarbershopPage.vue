@@ -27,14 +27,16 @@
   <NavigationBar></NavigationBar>
   <div>
     <div class="card flex justify-content-center">
-      <Sidebar v-model:visible="visibleTop" position="bottom"
-               class="sidebar"
-               close-icon="pi pi-minus"
+      <Sidebar
+        v-model:visible="visibleTop"
+        position="bottom"
+        class="sidebar"
+        close-icon="pi pi-minus"
       >
-          <StaffCard :plusVisible="plusVisible"/>
-          <NotificationCard />
-          <NotificationCard />
-          <Button>{{ $t('confirmButton') }}</Button>
+        <StaffCard :plusVisible="plusVisible"/>
+        <NotificationCard />
+        <NotificationCard />
+        <Button>{{ $t('confirmButton') }}</Button>
       </Sidebar>
     </div>
   </div>

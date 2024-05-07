@@ -1,5 +1,4 @@
 .header{
-    margin: 0px 0 8px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +7,8 @@
     width: 100%;
     z-index: 1000;
     background: #101418;
-    margin-bottom: 20px;
+    max-width: 500px;
+    margin: 0 auto 20px;
 }
 
 .header__menu__burger img {

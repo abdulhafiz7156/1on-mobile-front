@@ -1,10 +1,10 @@
+import './style.css'
 import {createApp} from 'vue'
 import { createI18n } from 'vue-i18n'
 import App from './App.vue'
 import router from './router/index.js'
 import PrimeVue from 'primevue/config'
 import ToastService from 'primevue/toastservice';
-import './style.css'
 import 'primeicons/primeicons.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'primevue/resources/themes/aura-dark-blue/theme.css';
