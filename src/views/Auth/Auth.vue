@@ -1,4 +1,3 @@
-
 <script setup>
 import {ref, computed} from 'vue'
 import Dialog from 'primevue/dialog';
@@ -6,107 +5,83 @@ import Button from 'primevue/button';
 import InputMask from 'primevue/inputmask';
 import InputOtp from 'primevue/inputotp';
 import Toast from 'primevue/toast';
-import {useToast} from "primevue/usetoast";
-import {googleSdkLoaded} from "vue3-google-login";
-import axios from "axios";
-import {useRouter} from "vue-router";
+import { useToast } from "primevue/usetoast";
+import { useAuthStore } from '@/store/authStore';
+import { useRouter } from "vue-router";
 
-    const router = useRouter();
-    const visible = ref(true)
-    const name = ref(false)
-    const code = ref(false)
-    const phonenum = ref('')
-    const username = ref('')
-    const surname = ref('')
-    const submitted = ref(false);
-    const invalid = ref(false);
-    const invalidcodeinp = ref('');
-    const invalidcode = ref(false);
-    const getAgain = ref(59);
-    const toast = useToast();
+const router = useRouter();
+const { getGCode } = useAuthStore();
 
-    const isNameValid = computed(() => username.value.trim() !== '');
-    const isSurNameValid = computed(() => surname.value.trim() !== '');
+const visible = ref(true)
+const name = ref(false)
+const code = ref(false)
+const phonenum = ref('')
+const username = ref('')
+const surname = ref('')
+const submitted = ref(false);
+const invalid = ref(false);
+const invalidcodeinp = ref('');
+const invalidcode = ref(false);
+const getAgain = ref(59);
+const toast = useToast();
 
-    function submitForm() {
-      submitted.value = true;
-      if (!isNameValid.value || !isSurNameValid.value) {
-        return;
-      }
-      if (isSurNameValid.value || isNameValid.value) {
-        name.value = false
-        code.value = true
-        countdown()
-      }
+const isNameValid = computed(() => username.value.trim() !== '');
+const isSurNameValid = computed(() => surname.value.trim() !== '');
+
+function submitForm() {
+  submitted.value = true;
+  if (!isNameValid.value || !isSurNameValid.value) {
+    return;
+  }
+  if (isSurNameValid.value || isNameValid.value) {
+    name.value = false
+    code.value = true
+    countdown()
+  }
+}
+
+const show = () => {
+  toast.add({severity: 'warn', summary: 'Tez kunda', life: 1000});
+};
+
+const countdown = () => {
+  getAgain.value = 59;
+
+  const mycounter = setInterval(() => {
+    getAgain.value--;
+
+    if (getAgain.value === 0) {
+      clearInterval(mycounter);
     }
-
-    const show = () => {
-      toast.add({severity: 'warn', summary: 'Tez kunda', life: 1000});
-    };
-
-    const countdown = () => {
-      getAgain.value = 59;
-
-      const mycounter = setInterval(() => {
-        getAgain.value--;
-
-        if (getAgain.value === 0) {
-          clearInterval(mycounter);
-        }
-      }, 1000);
-    };
+  }, 1000);
+};
 
 
-    const checkPhone = () => {
-      if (phonenum.value.length < 9) {
-        invalid.value = true
-      } else {
-        invalid.value = false
-        visible.value = false
-        name.value = true
-      }
-    }
+const checkPhone = () => {
+  if (phonenum.value.length < 9) {
+    invalid.value = true
+  } else {
+    invalid.value = false
+    visible.value = false
+    name.value = true
+  }
+}
 
 
-    const checkCode = () => {
-      if (invalidcodeinp.value.length < 4) {
-        invalidcode.value = true
-      } else {
-        invalidcode.value = false
-        code.value = false
-      }
-    }
+const checkCode = () => {
+  if (invalidcodeinp.value.length < 4) {
+    invalidcode.value = true
+  } else {
+    invalidcode.value = false
+    code.value = false
+  }
+}
 
-    const isLetter = (e) => {
-      let char = String.fromCharCode(e.keyCode); // Get the character
-      if (/^[A-Za-z]+$/.test(char)) return true; // Match with regex
-      else e.preventDefault(); // If not match, don't add to input text
-    }
-
-    const signInWithGoogle = () => {
-      googleSdkLoaded(google => {
-        google.accounts.oauth2
-            .initCodeClient({
-              client_id: '816973990634-rbr4b66316n53kltqc0t5cd10t7a9osj.apps.googleusercontent.com',
-              scope: 'email profile openid',
-              redirect_uri: 'http://localhost:5173',
-              callback: response => {
-                if (response.code) getTokenFromGoogle(response.code)
-              },
-            })
-            .requestCode()
-      })
-    }
-
-    const getTokenFromGoogle = async (code) => {
-      await axios.post(`http://localhost/public/api/auth/google`, {
-        code,
-        is_client: false,
-      }).then(({data}) => {
-        localStorage.setItem('token', data.token)
-        router.push('/')
-      })
-    }
+const isLetter = (e) => {
+  let char = String.fromCharCode(e.keyCode); // Get the character
+  if (/^[A-Za-z]+$/.test(char)) return true; // Match with regex
+  else e.preventDefault(); // If not match, don't add to input text
+}
 </script>
 
 <template>
@@ -132,7 +107,7 @@ import {useRouter} from "vue-router";
       <p class="subtitle">Kirishning boshqa yo’llari</p>
       <div class="socials-icons">
         <Toast/>
-        <button @click="signInWithGoogle" class="pi pi-google"></button>
+        <button @click="getGCode" class="pi pi-google"></button>
         <button class="pi pi-apple"></button>
         <button class="pi pi-facebook"></button>
       </div>

@@ -4,3 +4,5 @@ export interface OrganizationI {
   email: string;
   name: string;
 }
+
+export interface UserI {}
