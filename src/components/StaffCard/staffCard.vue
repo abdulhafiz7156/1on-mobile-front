@@ -1,19 +1,30 @@
 <script>
-  export default{
+
+  import {defineComponent} from "vue";
+
+  export default defineComponent({
     props: {
-      plusVisible: String
+      plusVisible: String,
+      employees: Array
     },
-    setup(){
+    setup(props, {emit}){
+      const getIdEmployee = (id) => {
+        emit('getId', id);
+      }
+      return {
+        getIdEmployee
+      }
     }
-  }
+  })
 </script>
 <template>
-    <div class="card-all">
+  <div class="staff__cards">
+    <div class="card-all" v-for="user in employees" :key="user.id" @click="getIdEmployee(user.id)">
         <div class="df top">
             <div class="df">
                 <b>M</b>
                 <div>
-                    <h4>Ja’far Rahimov</h4>
+                    <h4>{{user.full_name}}</h4>
                     <div class="df img__rate">
 <!--                        <img src="/src/assets/icons/star-icon.svg" width="20px" height="20px">-->
                         <i class="bi bi-star"></i>
@@ -36,6 +47,7 @@
             </div>
         </div>
     </div>
+  </div>
 </template>
 
 <style scoped>

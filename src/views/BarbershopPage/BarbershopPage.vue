@@ -1,9 +1,9 @@
 <template>
-  <Header :title="headerTitle"></Header>
+  <Header v-if="data.organization">{{ data.organization.name }}</Header>
 
   <div class="barbershop__image__address">
     <div class="barbershop__image">
-      <h3>Topor | Oybek metro filiali</h3>
+      <h3 v-if="data.organization">{{data.organization.name}} | {{data.organization.address}}</h3>
       <p>Supporting Text</p>
     </div>
   </div>
@@ -11,9 +11,7 @@
   <div class="container">
     <div class="staff">
       <h4>{{ $t('employee') }}</h4>
-      <StaffCard @click="visibleTop = true"/>
-      <StaffCard @click="visibleTop = true"/>
-      <StaffCard @click="visibleTop = true"/>
+      <StaffCard @get-id="openPopup" :employees="data.employees" />
       <p v-if="allStaff" class="all__staff">{{$t('barbershopPageAllEmployee')}}</p>
     </div>
     <div class="services">
@@ -33,9 +31,9 @@
         class="sidebar"
         close-icon="pi pi-minus"
       >
-        <StaffCard :plusVisible="plusVisible"/>
-        <NotificationCard />
-        <NotificationCard />
+        <StaffCard :employees="choosenEmployee"/>
+        <NotificationCard :data="data.services" title="Xizmatlar" :service="true"/>
+        <NotificationCard  title="Kun va vaqti" description="12-Sentabr 2024, 12:00" :service="false" />
         <Button>{{ $t('confirmButton') }}</Button>
       </Sidebar>
     </div>
@@ -51,19 +49,27 @@ import StaffCard from "../../components/StaffCard/staffCard.vue";
 import card from "../../components/ServiceCard/card.vue";
 import Button from "../../components/Button/Button.vue";
 import NotificationCard from "../../components/NotificationCard/NotificationCard.vue";
+import { useOrganizationStore } from '../../store/organizationStore.ts'
 
 export default {
   components: {NotificationCard, card, StaffCard, NavigationBar, Header, Button},
   setup() {
-    const headerTitle = ref("Topor barbershop")
     const allStaff = ref(true)
     const visibleTop = ref(false)
     const plusVisible = ref(false)
+    const data = useOrganizationStore()
+    const choosenEmployee = ref(null)
+    const openPopup = (id) => {
+      visibleTop.value = true
+      choosenEmployee.value = data.employees.filter(r => r.id === id)
+    }
     return {
-      headerTitle,
       allStaff,
       visibleTop,
       plusVisible,
+      openPopup,
+      choosenEmployee,
+      data
     }
   }
 }
