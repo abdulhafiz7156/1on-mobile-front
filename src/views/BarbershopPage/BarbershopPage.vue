@@ -11,7 +11,11 @@
   <div class="container">
     <div class="staff">
       <h4>{{ $t('employee') }}</h4>
-      <StaffCard @get-id="openPopup" :employees="data.employees" />
+      <StaffCard
+        :plus-visible="true"
+        @get-id="openPopup"
+        :employees="data.employees"
+      />
       <p v-if="allStaff" class="all__staff">{{$t('barbershopPageAllEmployee')}}</p>
     </div>
     <div class="services">
@@ -31,7 +35,9 @@
         class="sidebar"
         close-icon="pi pi-minus"
       >
-        <StaffCard :employees="choosenEmployee"/>
+        <StaffCard
+          :employees="choosenEmployee"
+        />
         <NotificationCard :data="data.services" title="Xizmatlar" :service="true"/>
         <NotificationCard  title="Kun va vaqti" description="12-Sentabr 2024, 12:00" :service="false" />
         <Button>{{ $t('confirmButton') }}</Button>

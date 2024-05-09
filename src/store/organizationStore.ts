@@ -1,11 +1,11 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-import {Employee, OrganizationI, ServiceI} from "../types/interfaces.ts";
+import {EmployeeI, OrganizationI, ServiceI} from "../types/interfaces.ts";
 import axios from "axios";
 
 export const useOrganizationStore = defineStore('organization', () => {
   const organization = ref<null | OrganizationI>(null)
-  const employees = ref<null | Employee>(null)
+  const employees = ref<null | EmployeeI>(null)
   const services = ref<null | ServiceI>(null)
 
   const initOrganization = async () => {

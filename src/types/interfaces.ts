@@ -5,7 +5,7 @@ export interface OrganizationI {
   name: string;
 }
 
-export interface Employee {
+export interface EmployeeI {
   id: number;
   email: string;
   name: string;

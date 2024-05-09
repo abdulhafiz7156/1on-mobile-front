@@ -33,7 +33,7 @@ const router = createRouter({
       component: ServiceCardWithoutImage,
     },
     {
-      path: '/barber/',
+      path: '/barber/:id',
       component: BarberProfile,
     },
     {

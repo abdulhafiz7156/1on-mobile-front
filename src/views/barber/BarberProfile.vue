@@ -1,56 +1,69 @@
-<script>
-  import Button from "../../components/Button/Button.vue"
-  import HeaderPages from "../../components/HeaderPages/HeaderPages.vue";
-  import { ref } from "vue";
-  export default  {
-    setup(){
-      const rightIcon = ref("bi-chat-left")
+<script setup lang="ts">
+import {onMounted, ref} from "vue";
+import HeaderPages from "@/components/HeaderPages/HeaderPages.vue";
+import {useRoute} from "vue-router";
+import axios from "axios";
+import {EmployeeI, ServiceI} from "@/types/interfaces.ts";
 
-      return {
-        rightIcon,
-      }
-    }
+const route = useRoute()
+const employee = ref<null | EmployeeI>(null)
+const services = ref<ServiceI[]>([])
 
-  }
+const rightIcon = ref("bi-chat-left")
+
+onMounted(() => {
+  axios.get(`${import.meta.env.VITE_APP_URL}/organization/1/employee/${route.params.id}`)
+    .then(res => {
+      employee.value = res.data
+    })
+  axios.get(`${import.meta.env.VITE_APP_URL}/organization/1/employee/${route.params.id}/service`)
+    .then(res => {
+      services.value = res.data
+    })
+})
 </script>
 
 <template>
-    <div id="all">
-      <HeaderPages
-        :right-icon="rightIcon"
-        :right-visible="true"
-        :share-icon="true"
-      ></HeaderPages>
-        <div class="info">
-            <img src="/src/assets/images/avatar.svg" alt="Avatar" class="avatar">
-            <h2>Ja’far Rahimov</h2>
-            <div class="df img__rate">
-              <img src="/src/assets/icons/star-icon.svg">
-              <p> <span>(4.6)</span> {{ $t('barber') }}</p>
-            </div>
-            <div class="br-services">
-              <h3>{{$t('barberProfileServiceProvided')}}</h3>
-              <img src="/src/assets/icons/arrow-right-icon.svg">
-              <p>Soqol olish, Soch turmagi</p>
-            </div>
-        </div>
-        <h3 class="h3">{{ $t('archivedOrderReviews') }}</h3>
-        <div class="reviews" id='v-for="(el,index) in array" :key="index"' > 
-            <div class="person-rev">
-                <b>M</b>
-                <h3>Mamurov Ismoilbek</h3>
-                <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
-                <img class="img" src="/src/assets/icons/5-stars-icon.svg">
-            </div>
-        </div>
+<div id="all">
+  <HeaderPages
+    :right-icon="rightIcon"
+    :right-visible="true"
+    :share-icon="true"
+  ></HeaderPages>
+    <div class="info" v-if="employee">
+      <img src="/src/assets/images/avatar.svg" alt="Avatar" class="avatar">
+      <h2>{{employee.full_name}}</h2>
+      <div class="df img__rate">
+        <img src="/src/assets/icons/star-icon.svg">
+        <p> <span>(4.6)</span> {{ $t('barber') }}</p>
+      </div>
+      <div class="br-services" v-if="services.length">
+        <h3>{{$t('barberProfileServiceProvided')}}</h3>
+        <img src="/src/assets/icons/arrow-right-icon.svg">
+        <p>
+          <template v-for="(service, i) in services" :key="service.id">
+            {{service.name}}{{i < services.length - 1 ? ', ' : ''}}
+          </template>
+        </p>
+      </div>
+    </div>
+    <h3 class="h3">{{ $t('archivedOrderReviews') }}</h3>
+    <div class="reviews" id='v-for="(el,index) in array" :key="index"' >
         <div class="person-rev">
             <b>M</b>
             <h3>Mamurov Ismoilbek</h3>
             <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
             <img class="img" src="/src/assets/icons/5-stars-icon.svg">
         </div>
-        <Button>{{$t('barberProfileBron')}}</Button>
     </div>
+    <div class="person-rev">
+        <b>M</b>
+        <h3>Mamurov Ismoilbek</h3>
+        <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
+        <img class="img" src="/src/assets/icons/5-stars-icon.svg">
+    </div>
+    <Button>{{$t('barberProfileBron')}}</Button>
+</div>
 </template>
 
 <style scoped>
@@ -59,7 +72,7 @@
     justify-items: center;
     padding: 20px;
 }
-.h3{
+.h3 {
     margin-left: -288px;
 }
 header{
@@ -88,7 +101,7 @@ header{
 .info h2{
     margin-bottom: 16px;
 }
-.br-services{
+.br-services {
     height: 88px;
     display: flex;
     flex-wrap: wrap;
@@ -96,7 +109,10 @@ header{
     background-color: #181C20;
     margin: 29px auto 24px auto;
     padding: 12px 16px 24px 16px;
-    justify-content: space-between;
+    justify-content: left;
+}
+.br-services h3 {
+  width: 100%;
 }
 .reviews{
     display: block;
