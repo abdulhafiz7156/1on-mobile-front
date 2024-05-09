@@ -23,9 +23,9 @@
 
 <script setup lang="ts">
 import "./OrderDate.css"
-import HeaderPages from "../../components/HeaderPages/HeaderPages.vue";
-import {computed, onMounted, ref} from "vue";
-import {useOrderStore} from "../../store/orderStore";
+import HeaderPages from "@/components/HeaderPages/HeaderPages.vue";
+import { computed, onMounted, ref } from "vue";
+import { useOrderStore } from "@/store/orderStore.ts";
 import Toast from 'primevue/toast';
 
 const date = ref(null)
@@ -38,8 +38,8 @@ const handleCalendarChanges = () => {
   const month = (date.value.getMonth() + 1).toString().padStart(2, '0');
   const day = date.value.getDate().toString().padStart(2, '0');
   const formattedDate = `${year}-${month}-${day}`;
-  orderStore.setOrderDate(formattedDate);
-  console.log(orderStore.freeTimes)
+
+  orderStore.getTimeSlot(formattedDate);
 }
 
 const formattedDate = computed(() => {

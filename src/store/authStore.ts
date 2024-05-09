@@ -29,7 +29,6 @@ export const useAuthStore = defineStore('auth', () => {
       is_client: true,
     }).then(({data}) => {
       localStorage.setItem('token', data.token)
-      console.log(data)
       router.push('/')
     })
   }
