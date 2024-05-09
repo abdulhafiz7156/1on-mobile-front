@@ -4,13 +4,16 @@ import { useOrganizationStore } from "../../store/organizationStore";
 import { useOrderStore } from "../../store/orderStore";
 import { ref} from "vue";
 import CardWithoutImage from "@/components/ServiceCardWithoutImage/CardWithoutImage.vue";
+import {useRouter} from 'vue-router'
 
 const data = useOrganizationStore()
 const orderStore = useOrderStore()
 const totalTime = ref(0)
+const router = useRouter()
 
 const sendTime = () => {
   orderStore.setServicesTime(totalTime.value);
+  router.push('barbershop')
 }
 </script>
 
