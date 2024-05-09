@@ -1,13 +1,13 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-import {OrganizationI, Services, Employee} from "../types/interfaces.ts";
+import {Employee, OrganizationI, ServiceI} from "../types/interfaces.ts";
 import axios from "axios";
 
 export const useOrganizationStore = defineStore('organization', () => {
     const organization = ref<null | OrganizationI>(null)
     const employees = ref<null | Employee>(null)
     const organization_id =ref(null)
-    const services = ref<null | Services>(null)
+    const services = ref<null | ServiceI>(null)
 
     const initOrganization = async() => {
         await axios.get(`${import.meta.env.VITE_APP_URL}/init-organization`)

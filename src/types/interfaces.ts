@@ -13,7 +13,7 @@ export interface Employee {
   full_name: string;
 }
 
-export interface Services {
+export interface ServiceI {
   id: number;
   name: string;
   price: number;
