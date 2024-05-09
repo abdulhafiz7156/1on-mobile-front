@@ -5,7 +5,7 @@
       <h4 class="calendar__title">{{$t('orderDateChoiceDay')}}</h4>
       <div class="calendar">
         <div class="calendar__choice__day">{{formattedDate ? formattedDate : today}}</div>
-        <Calendar v-model="date" inline id="calendar" @date-select="hanldeCalendarChanges($event)"/>
+        <Calendar v-model="date" dateFormat="dd/mm/yy" inline id="calendar" @date-select="hanldeCalendarChanges($event)"/>
       </div>
     </div>
     <div>
@@ -41,14 +41,17 @@ export default {
     const date = ref(null)
     const today = ref(new Date())
     const options = { weekday: 'short', month: 'short', day: 'numeric' };
+    const dateToApi = ref(null)
+
+    const hanldeCalendarChanges = () => {
+      dateToApi.value = date.value.toLocaleDateString("en-US")
+      console.log(dateToApi.value)
+    }
     today.value = today.value.toLocaleDateString('en-US', options)
     const formattedDate = computed(() => {
       if (!date.value) return '';
       return date.value.toLocaleDateString('en-US', options);
     });
-    const hanldeCalendarChanges = () => {
-      console.log(formattedDate)
-    }
 
 
     return {

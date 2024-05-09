@@ -3,13 +3,20 @@
     import CardWI from "../../components/ServiceCardWithoutImage/CardWithoutImage.vue";
     import Button from "../../components/Button/Button.vue";
     import {useOrganizationStore} from "../../store/organizationStore";
+    import {useOrderStore} from "../../store/orderStore";
     export default{
-        components:{CardWI},
+        components:{CardWI, Button},
         setup() {
           const data = useOrganizationStore()
+          const orderStore = useOrderStore()
+
+          const sendTime = (time) => {
+              orderStore.setServicesTime(totalTime.value);
+          }
 
           return {
-            data
+            data,
+            sendTime,
           }
         }
     }
@@ -29,7 +36,7 @@
 <!--            <CardWI/>-->
 <!--            <CardWI/>-->
 <!--        </div>-->
-        <Button>{{$t('confirmButton')}}</Button>
+        <Button @click="sendTime">{{$t('confirmButton')}}</Button>
     </div>
 </template>
 

@@ -12,9 +12,11 @@
     justify-content: space-between;
     background-color: #1C2024;
 }
-.card_2 *{
-    background: transparent;
+
+.card_2 i {
+    margin-right: 10px;
 }
+
 .cards_2{
     margin-bottom: 16px;
 }
