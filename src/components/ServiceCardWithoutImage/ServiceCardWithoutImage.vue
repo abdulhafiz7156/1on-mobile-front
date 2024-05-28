@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import "./ServiceCardWithoutImage.css";
-import { useOrganizationStore } from "@/store/organizationStore";
-import { useOrderStore } from "@/store/orderStore";
+import { useOrganizationStore } from "@/store/organizationStore.ts";
+import { useOrderStore } from "@/store/orderStore.ts";
 import { ref } from "vue";
 import { useRouter } from 'vue-router'
 import { ServiceI } from "@/types/interfaces.ts";

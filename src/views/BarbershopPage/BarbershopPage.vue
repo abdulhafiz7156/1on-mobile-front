@@ -59,6 +59,7 @@
   >
     <OrderDate @exit="toFirstTab" @confirm="time => selectedDate = time" />
   </Sidebar>
+  <AuthPhone :visible="phoneDialog" />
 </template>
 
 <script setup lang="ts">
@@ -66,9 +67,15 @@ import {computed, ref} from "vue"
 import { useOrganizationStore } from "@/store/organizationStore.ts"
 import NotificationCard from "@/components/NotificationCard/NotificationCard.vue";
 import "./BarbershopPage.css"
-import ServiceCardWithoutImage from "@/views/ServiceCardWithoutImage/ServiceCardWithoutImage.vue";
-import OrderDate from "@/views/OrderDate/OrderDate.vue";
+import ServiceCardWithoutImage from "@/components/ServiceCardWithoutImage/ServiceCardWithoutImage.vue";
+import OrderDate from "@/components/OrderDate/OrderDate.vue";
 import axios from "axios";
+import {useAuthStore} from "@/store/authStore.ts";
+import Button from "primevue/button";
+import AuthPhone from "@/components/Auth/AuthPhone.vue";
+
+const organizationStore = useOrganizationStore()
+const userStore = useAuthStore()
 
 const allStaff = ref(true)
 const firstTab = ref(false)
@@ -77,8 +84,8 @@ const dateTab = ref(false)
 const selectedServices = ref([])
 const selectedDate = ref('')
 const plusVisible = ref(false)
-const organizationStore = useOrganizationStore()
 const chosenEmployee = ref(null)
+const phoneDialog = ref(false)
 
 const servicesText = computed(() => {
   if (!selectedServices.value.length) return 'Ничего не выбрано'
@@ -91,11 +98,9 @@ const openPopup = (id: number) => {
 }
 const toServiceTab = () => {
   serviceTab.value = true
-  dateTab.value = false
   firstTab.value = false
 }
 const toDateTab = () => {
-  serviceTab.value = false
   dateTab.value = true
   firstTab.value = false
 }
@@ -107,14 +112,19 @@ const toFirstTab = () => {
 
 const confirmOrder = () => {
   if (!selectedServices.value.length || !selectedDate.value) return
-  console.log(chosenEmployee.value)
+
+  if (!userStore.user.phone) return phoneDialog.value = true
+
   const data = {
     employee_id: chosenEmployee.value.id,
     start_time: selectedDate.value,
     organization_id: organizationStore.organization.id,
-    client_id: 1,
     added_by: 1,
-    service_ids: selectedServices.value.map(service => service.id)
+    service_ids: selectedServices.value.map(service => service.id),
+    client_info: {
+      full_name: userStore.user.full_name,
+      phone: userStore.user.phone,
+    }
   }
 
   axios.post(`${import.meta.env.VITE_APP_URL}/organization/${organizationStore.organization.id}/order/`, data)

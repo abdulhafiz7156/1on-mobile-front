@@ -59,7 +59,7 @@ const formattedDate = computed(() => {
 })
 
 const onConfirm = () => {
-  const time = `${selectedDate.value} ${selectedTime.value}`
+  const time = `${selectedDate.value} ${selectedTime.value}:00`
   emit('confirm', time)
   emit('exit')
 }
