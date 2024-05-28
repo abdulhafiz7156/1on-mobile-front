@@ -2,10 +2,10 @@
 import { useOrganizationStore } from './store/organizationStore.ts'
 import {onMounted} from "vue";
 
-const { initOrganization } = useOrganizationStore()
+const organizationStore = useOrganizationStore()
 
 onMounted(() => {
-  initOrganization()
+  organizationStore.initOrganization()
 })
 </script>
 

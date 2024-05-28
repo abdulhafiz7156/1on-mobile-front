@@ -5,7 +5,7 @@ import {ref} from "vue";
 import {googleSdkLoaded} from "vue3-google-login";
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref(JSON.parse(localStorage.getItem('user')))
+  const user = ref(JSON.parse(localStorage.getItem('user') || null))
   const router = useRouter()
 
   const getGCode = () => {

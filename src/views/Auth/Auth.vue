@@ -2,8 +2,6 @@
 import {ref, computed} from 'vue'
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
-import InputMask from 'primevue/inputmask';
-import InputOtp from 'primevue/inputotp';
 import Toast from 'primevue/toast';
 import { useToast } from "primevue/usetoast";
 import { useAuthStore } from '@/store/authStore';
@@ -12,17 +10,10 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const { getGCode } = useAuthStore();
 
-const visible = ref(true)
-const name = ref(false)
-const code = ref(false)
-const phonenum = ref('')
+const name = ref(true)
 const username = ref('')
 const surname = ref('')
 const submitted = ref(false);
-const invalid = ref(false);
-const invalidcodeinp = ref('');
-const invalidcode = ref(false);
-const getAgain = ref(59);
 const toast = useToast();
 
 const isNameValid = computed(() => username.value.trim() !== '');
@@ -36,45 +27,11 @@ function submitForm() {
   if (isSurNameValid.value || isNameValid.value) {
     name.value = false
     code.value = true
-    countdown()
   }
 }
 
 const show = () => {
   toast.add({severity: 'warn', summary: 'Tez kunda', life: 1000});
-};
-
-const countdown = () => {
-  getAgain.value = 59;
-
-  const mycounter = setInterval(() => {
-    getAgain.value--;
-
-    if (getAgain.value === 0) {
-      clearInterval(mycounter);
-    }
-  }, 1000);
-};
-
-
-const checkPhone = () => {
-  if (phonenum.value.length < 9) {
-    invalid.value = true
-  } else {
-    invalid.value = false
-    visible.value = false
-    name.value = true
-  }
-}
-
-
-const checkCode = () => {
-  if (invalidcodeinp.value.length < 4) {
-    invalidcode.value = true
-  } else {
-    invalidcode.value = false
-    code.value = false
-  }
 }
 
 const isLetter = (e) => {
@@ -85,35 +42,6 @@ const isLetter = (e) => {
 </script>
 
 <template>
-  <Dialog
-    class="popup"
-    v-model:visible="visible"
-    modal header="Telefon raqamingizni kiriting"
-    :dismissableMask="true"
-    :closable="false"
-    :style="{ width: '95%', padding: '16px'}"
-  >
-    <template #header>
-      <h1 class="popup__title">Telefon raqamingizni kiriting</h1>
-    </template>
-    <form @submit.prevent="checkPhone">
-      <div class="flex-auto">
-        <div v-if="invalid" style="color: var(--red-600)">Telefon raqami notog’ri kiritilgan!</div>
-        <InputMask type="text" class="phone" v-model="phonenum" mask="(99) 999-99-99" placeholder="(99) 999-99-99"/>
-      </div>
-      <Button type="submit" class="auth__button">Yuborish</Button>
-    </form>
-    <div class="auth__socials">
-      <p class="subtitle">Kirishning boshqa yo’llari</p>
-      <div class="socials-icons">
-        <Toast/>
-        <button @click="getGCode" class="pi pi-google"></button>
-        <button class="pi pi-apple"></button>
-        <button class="pi pi-facebook"></button>
-      </div>
-    </div>
-  </Dialog>
-
   <Dialog
     v-model:visible="name"
     modal
@@ -139,30 +67,15 @@ const isLetter = (e) => {
         <Button type="submit" class="auth__button name__side">Tasdiqlash</Button>
       </div>
     </form>
-  </Dialog>
-
-  <Dialog
-    v-model:visible="code"
-    modal
-    header="Telefon raqamingizni tasdiqlang!"
-    :dismissableMask="true"
-    :closable="false"
-    :style="{ width: '95%', padding: '16px'}">
-    <template #header>
-      <h1 class="popup__title">Telefon raqamingizni tasdiqlang!</h1>
-    </template>
-    <p class="subtitle">**7753 raqamiga yuborilgan kodni kiriting</p>
-    <form @submit.prevent="checkCode">
-      <div class="flex-auto">
-        <div v-if="invalidcode" style="color: var(--red-600)">Tasdiqlash kodi notog’ri</div>
-        <InputOtp v-model="invalidcodeinp" class="opt" integer-only/>
+    <div class="auth__socials">
+      <p class="subtitle">Kirishning boshqa yo’llari</p>
+      <div class="socials-icons">
+        <Toast/>
+        <button @click="getGCode" class="pi pi-google"></button>
+        <button class="pi pi-apple"></button>
+        <button class="pi pi-facebook"></button>
       </div>
-      <p v-if="getAgain>0" style="color: #E0E2E8;">Qayta yuborish 00:{{ getAgain }}</p>
-      <p v-else style="color: #3B96DD;" @click="ass">Qayta yuborish</p>
-      <div class="try-again">
-        <Button type="submit" class="auth__button" rounded>Tasdiqlash</Button>
-      </div>
-    </form>
+    </div>
   </Dialog>
 </template>
 

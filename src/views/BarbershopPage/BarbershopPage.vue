@@ -59,7 +59,7 @@
   >
     <OrderDate @exit="toFirstTab" @confirm="time => selectedDate = time" />
   </Sidebar>
-  <AuthPhone :visible="phoneDialog" />
+  <AuthPhone @close="phoneDialog = false" :visible="phoneDialog" />
 </template>
 
 <script setup lang="ts">
@@ -127,7 +127,11 @@ const confirmOrder = () => {
     }
   }
 
-  axios.post(`${import.meta.env.VITE_APP_URL}/organization/${organizationStore.organization.id}/order/`, data)
+  axios.post(`${import.meta.env.VITE_APP_URL}/organization/${organizationStore.organization.id}/order/`, data, {
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+    }
+  })
 }
 </script>
 

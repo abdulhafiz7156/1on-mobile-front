@@ -9,6 +9,7 @@ import Employee from "../views/Employee/Employee.vue";
 import Order from "../views/Order/Order.vue";
 import Auth from "../views/Auth/Auth.vue";
 import canceledOrder from "../views/canceledOrder/canceledOrder.vue";
+import {useAuthStore} from "@/store/authStore.ts";
 
 
 const router = createRouter({
@@ -57,5 +58,14 @@ const router = createRouter({
 
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  const user = localStorage.getItem("user");
+  if (!user && to.path !== '/auth') {
+    next('/auth')
+  }
+
+  next()
+})
 
 export default router;
