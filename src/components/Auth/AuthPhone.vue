@@ -30,7 +30,7 @@
           <InputOtp v-model="codeValue" class="opt" integer-only/>
         </div>
         <p v-if="getAgain>0" style="color: #E0E2E8;">Qayta yuborish 00:{{ getAgain }}</p>
-        <p v-else style="color: #3B96DD;" @click="ass">Qayta yuborish</p>
+        <p v-else style="color: #3B96DD;" @click="sendAgain">Qayta yuborish</p>
         <div class="try-again">
           <Button type="submit" class="auth__button" rounded>Tasdiqlash</Button>
         </div>
@@ -89,6 +89,10 @@ const countdown = () => {
     }
   }, 1000);
 };
+
+const sendAgain = () => {
+  console.log('again')
+}
 </script>
 
 <style scoped>
