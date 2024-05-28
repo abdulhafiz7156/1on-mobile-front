@@ -5,7 +5,7 @@
     <h4 class="calendar__title">{{$t('orderDateChoiceDay')}}</h4>
     <div class="calendar">
       <div class="calendar__choice__day">{{formattedDate ? formattedDate : today}}</div>
-      <Calendar v-model="date" dateFormat="dd/mm/yy" inline id="calendar" @date-select="handleCalendarChanges($event)"/>
+      <Calendar v-model="date" dateFormat="dd/mm/yy" inline id="calendar" @date-select="handleCalendarChanges()"/>
     </div>
   </div>
   <div v-if="orderStore.freeTimes && date">
