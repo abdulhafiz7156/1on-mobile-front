@@ -58,5 +58,7 @@
   "rateOrderLeaveReview": "Fikringizni qoldiring",
   "ServiceCardWithoutImageChoiceService": "Xizmat tanlash",
   "ServiceCardWithoutImageAdditionalServices": "Qo’shimcha xizmatlar",
-  "active": "Aktiv"
+  "active": "Aktiv",
+
+  "atLeastOneOption": "Kamida bitta variantni tanlang"
 }

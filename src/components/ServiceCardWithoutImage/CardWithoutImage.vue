@@ -34,5 +34,3 @@ const addStore = (index, id) => {
     </div>
   </div>
 </template>
-
-<style scoped></style>

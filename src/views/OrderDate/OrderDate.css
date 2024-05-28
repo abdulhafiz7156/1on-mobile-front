@@ -66,6 +66,11 @@
     padding: 15px 38px;
     border-radius: 8px;
     color: #E0E2E8;
+    transition: .15s;
+    cursor: pointer;
+}
+.calendar__time div.active {
+    border-color: var(--p-focus-ring-color);
 }
 
 .calendar__time div.deactive__div {

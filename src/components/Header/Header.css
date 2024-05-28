@@ -9,6 +9,7 @@
     background: #101418;
     max-width: 500px;
     margin: 0 auto 20px;
+    top: 0;
 }
 
 .header__menu__burger img {

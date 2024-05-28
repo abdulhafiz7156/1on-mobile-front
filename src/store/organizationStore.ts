@@ -5,8 +5,8 @@ import axios from "axios";
 
 export const useOrganizationStore = defineStore('organization', () => {
   const organization = ref<null | OrganizationI>(null)
-  const employees = ref<null | EmployeeI>(null)
-  const services = ref<null | ServiceI>(null)
+  const employees = ref<null | EmployeeI[]>(null)
+  const services = ref<null | ServiceI[]>(null)
 
   const initOrganization = async () => {
     await axios.get(`${import.meta.env.VITE_APP_URL}/init-organization`)
@@ -23,5 +23,5 @@ export const useOrganizationStore = defineStore('organization', () => {
       })
   }
 
-    return { organization, initOrganization, employees, services }
+  return { organization, initOrganization, employees, services }
 })

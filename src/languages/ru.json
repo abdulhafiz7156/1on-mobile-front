@@ -58,5 +58,8 @@
   "rateOrderLeaveReview": "Оставьте свои комментарии",
   "ServiceCardWithoutImageChoiceService": "Выбор услуги",
   "ServiceCardWithoutImageAdditionalServices": "Дополнительные услуги",
-  "active": "Актив"
+  "active": "Актив",
+
+
+  "atLeastOneOption": "Выберите хотя бы один вариант!"
 }

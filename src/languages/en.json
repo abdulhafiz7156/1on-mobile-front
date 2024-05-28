@@ -58,5 +58,7 @@
   "rateOrderLeaveReview": "Leave your comments",
   "ServiceCardWithoutImageChoiceService": "Service Selection",
   "ServiceCardWithoutImageAdditionalServices": "Additional Services",
-  "active": "Active"
+  "active": "Active",
+
+  "atLeastOneOption": "Choose at least one option!"
 }

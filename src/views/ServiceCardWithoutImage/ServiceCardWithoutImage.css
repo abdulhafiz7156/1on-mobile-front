@@ -11,6 +11,11 @@
     border-radius: 12px;
     justify-content: space-between;
     background-color: #1C2024;
+    transition: .15s;
+    cursor: pointer;
+}
+.card_2.active {
+    background-color: #272A2F;
 }
 
 .card_2 i {

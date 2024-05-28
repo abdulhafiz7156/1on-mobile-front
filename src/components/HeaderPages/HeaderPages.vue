@@ -1,36 +1,37 @@
 <template>
   <div class="header__pages">
     <div class="df__jcc__aic">
-      <i class="bi bi-arrow-left" @click="redirectPreventPage()"></i>
+      <i class="bi bi-arrow-left" @click="redirectPreventPage"></i>
       <p><slot></slot></p>
     </div>
     <div class="header__pages__right">
-      <i v-if="rightVisible" :class="rightIcon" @click="$emit('redirectPage')"></i>
+      <i v-if="rightIcon" :class="rightIcon" @click="$emit('redirectPage')"></i>
       <i v-if="shareIcon" class="bi bi-share"></i>
     </div>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { useRouter } from 'vue-router';
 
-export default {
-  props:{
-    rightVisible: Boolean,
-    rightIcon: String,
-    shareIcon: Boolean,
-  },
-  name: "HeaderPages",
-  setup() {
-    const router = useRouter();
-    const redirectPreventPage = () => {
-      router.go(-1)
-    }
-    return {
-      redirectPreventPage,
-    }
+const props = defineProps<{
+  rightIcon?: string,
+  shareIcon?: boolean,
+  cancelable?: boolean,
+}>()
 
+const emit = defineEmits<{
+  (event: 'redirectPage'): void,
+  (event: 'exit'): void,
+}>()
+
+const router = useRouter();
+
+const redirectPreventPage = () => {
+  if (props.cancelable) {
+    return emit('exit')
   }
+  router.go(-1)
 }
 </script>
 
@@ -40,7 +41,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px 0px;
+  padding: 20px 0;
 }
 
 .header__pages i {
