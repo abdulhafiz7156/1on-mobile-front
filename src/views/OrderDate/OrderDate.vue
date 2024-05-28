@@ -39,7 +39,7 @@ const emit = defineEmits<{
 
 const date = ref(null)
 const options = { weekday: 'short', month: 'short', day: 'numeric' };
-const today = ref(new Date())
+const today = ref('')
 const selectedDate = ref('')
 const selectedTime = ref('')
 const orderStore = useOrderStore()
@@ -60,13 +60,12 @@ const formattedDate = computed(() => {
 
 const onConfirm = () => {
   const time = `${selectedDate.value} ${selectedTime.value}`
-  console.log(time)
   emit('confirm', time)
   emit('exit')
 }
 
 onMounted(() => {
-today.value = today.value.toLocaleDateString('en-US', options)
+today.value = new Date().toLocaleDateString('en-US', {dateStyle: 'medium'})
 })
 </script>
 
