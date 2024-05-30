@@ -45,9 +45,12 @@ import Dialog from "primevue/dialog";
 import InputMask from "primevue/inputmask";
 import { ref } from "vue";
 import InputOtp from "primevue/inputotp";
+import axios from "axios";
+import {useAuthStore} from "@/store/authStore.ts";
 
 defineProps<{visible: boolean}>()
 const emit = defineEmits<{(event: 'close'): void}>()
+const auth = useAuthStore()
 
 const phone = ref('')
 const codeValue = ref('')
@@ -74,6 +77,13 @@ const checkCode = () => {
   } else {
     invalidcode.value = false
     secondStep.value = false
+    axios.post(`${import.meta.env.VITE_APP_URL}/auth/set-phone`, {
+      email: auth.user.email,
+      phone: phone.value,
+    })
+      .then(() => {
+        auth.addPhone(phone.value)
+      })
     emit('close')
   }
 }

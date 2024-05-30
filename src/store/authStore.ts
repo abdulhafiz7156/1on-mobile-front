@@ -35,10 +35,18 @@ export const useAuthStore = defineStore('auth', () => {
     })
   }
 
+  const addPhone = (phone: string) => {
+    user.value = {
+      ...user.value,
+      phone: phone,
+    }
+    localStorage.setItem('user', phone)
+  }
+
   const logout = () => {
     localStorage.removeItem('token')
     user.value = null
   }
 
-  return { user, getGCode, logout }
+  return { user, getGCode, logout, addPhone }
 })

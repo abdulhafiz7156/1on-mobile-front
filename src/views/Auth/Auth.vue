@@ -6,6 +6,7 @@ import Toast from 'primevue/toast';
 import { useToast } from "primevue/usetoast";
 import { useAuthStore } from '@/store/authStore';
 import { useRouter } from "vue-router";
+import axios from "axios";
 
 const router = useRouter();
 const { getGCode } = useAuthStore();
@@ -26,7 +27,6 @@ function submitForm() {
   }
   if (isSurNameValid.value || isNameValid.value) {
     name.value = false
-    code.value = true
   }
 }
 
@@ -38,6 +38,17 @@ const isLetter = (e) => {
   let char = String.fromCharCode(e.keyCode); // Get the character
   if (/^[A-Za-z]+$/.test(char)) return true; // Match with regex
   else e.preventDefault(); // If not match, don't add to input text
+}
+
+const onLogin = () => {
+  if (!username.value || !surname.value) {
+    return
+  }
+
+  axios.post(`${import.meta.env.VITE_APP_URL}/auth/login`, {
+    is_client: true,
+    email: username.value,
+  })
 }
 </script>
 
@@ -63,8 +74,7 @@ const isLetter = (e) => {
         <InputText type="text" v-model="surname" class="phone" placeholder="Familiya" v-on:keypress="isLetter($event)"/>
       </div>
       <div class="try-again">
-        <p class="try-again-skip" @click="name = false, code= true, countdown()">O’tkazib yuborish</p>
-        <Button type="submit" class="auth__button name__side">Tasdiqlash</Button>
+        <Button @click="onLogin" type="submit" class="auth__button name__side">Tasdiqlash</Button>
       </div>
     </form>
     <div class="auth__socials">
