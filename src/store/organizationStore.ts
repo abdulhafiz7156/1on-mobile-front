@@ -2,6 +2,7 @@ import {defineStore} from "pinia";
 import {ref} from "vue";
 import {EmployeeI, OrganizationI, ServiceI} from "../types/interfaces.ts";
 import axios from "axios";
+import {apiUrl} from "@/main.ts";
 
 export const useOrganizationStore = defineStore('organization', () => {
   const organization = ref<null | OrganizationI>(null)
@@ -9,15 +10,15 @@ export const useOrganizationStore = defineStore('organization', () => {
   const services = ref<null | ServiceI[]>(null)
 
   const initOrganization = async () => {
-    await axios.get(`${import.meta.env.VITE_APP_URL}/init-organization`)
+    await axios.get(`${apiUrl}/init-organization`)
       .then(({data}) => {
         organization.value = data
       })
-    await axios.get(`${import.meta.env.VITE_APP_URL}/organization/${organization.value.id}/employee`)
+    await axios.get(`${apiUrl}/organization/${organization.value.id}/employee`)
       .then(({data}) => {
         employees.value = data
       })
-    await axios.get(`${import.meta.env.VITE_APP_URL}/organization/${organization.value.id}/service`)
+    await axios.get(`${apiUrl}/organization/${organization.value.id}/service`)
       .then(({data}) => {
         services.value = data
       })

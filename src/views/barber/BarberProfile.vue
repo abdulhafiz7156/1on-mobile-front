@@ -4,6 +4,7 @@ import HeaderPages from "@/components/HeaderPages/HeaderPages.vue";
 import {useRoute} from "vue-router";
 import axios from "axios";
 import {EmployeeI, ServiceI} from "@/types/interfaces.ts";
+import {apiUrl} from "@/main.ts";
 
 const route = useRoute()
 const employee = ref<null | EmployeeI>(null)
@@ -12,11 +13,11 @@ const services = ref<ServiceI[]>([])
 const rightIcon = ref("bi-chat-left")
 
 onMounted(() => {
-  axios.get(`${import.meta.env.VITE_APP_URL}/organization/1/employee/${route.params.id}`)
+  axios.get(`${apiUrl}/organization/1/employee/${route.params.id}`)
     .then(res => {
       employee.value = res.data
     })
-  axios.get(`${import.meta.env.VITE_APP_URL}/organization/1/employee/${route.params.id}/service`)
+  axios.get(`${apiUrl}/organization/1/employee/${route.params.id}/service`)
     .then(res => {
       services.value = res.data
     })

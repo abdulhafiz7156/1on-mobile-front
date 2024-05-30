@@ -72,6 +72,7 @@ import OrderDate from "@/components/OrderDate/OrderDate.vue";
 import axios from "axios";
 import {useAuthStore} from "@/store/authStore.ts";
 import AuthPhone from "@/components/Auth/AuthPhone.vue";
+import {apiUrl} from "@/main.ts";
 
 const organizationStore = useOrganizationStore()
 const userStore = useAuthStore()
@@ -126,7 +127,7 @@ const confirmOrder = () => {
     }
   }
 
-  axios.post(`${import.meta.env.VITE_APP_URL}/organization/${organizationStore.organization.id}/order`, data)
+  axios.post(`${apiUrl}/organization/${organizationStore.organization.id}/order`, data)
     .then(() => {
       selectedDate.value = ''
       selectedServices.value = []

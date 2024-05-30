@@ -3,6 +3,7 @@ import axios from "axios";
 import {useRouter} from "vue-router";
 import {ref} from "vue";
 import {googleSdkLoaded} from "vue3-google-login";
+import {apiUrl} from "@/main.ts";
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref(JSON.parse(localStorage.getItem('user') || null))
@@ -24,7 +25,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   const getUserData = async (code) => {
-    await axios.post(`http://localhost/public/api/auth/google`, {
+    await axios.post(`${apiUrl}/auth/google`, {
       code,
       is_client: true,
     }).then(({data}) => {

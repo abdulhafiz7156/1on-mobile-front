@@ -3,6 +3,7 @@ import {ref} from "vue";
 import {useOrganizationStore} from "./organizationStore";
 import axios from "axios";
 import { useToast } from 'primevue/usetoast';
+import {apiUrl} from "@/main.ts";
 
 
 export const useOrderStore = defineStore('order', () => {
@@ -16,7 +17,7 @@ export const useOrderStore = defineStore('order', () => {
   }
 
   const getTimeSlot = (date: string) => {
-     axios.post(`${import.meta.env.VITE_APP_URL}/organization/${organizationStore.organization.id}/employee/1/time-slots`, {
+     axios.post(`${apiUrl}/organization/${organizationStore.organization.id}/employee/1/time-slots`, {
        day: date,
        duration: servicesTime.value
      })

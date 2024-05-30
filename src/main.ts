@@ -13,6 +13,8 @@ import ru from './languages/ru.json'
 import en from './languages/en.json'
 import {createPinia} from "pinia";
 
+export const apiUrl = import.meta.env.VITE_APP_URL
+
 const i18n = createI18n({
     locale: localStorage.getItem('language'),
     messages: {
