@@ -40,7 +40,7 @@ export const useAuthStore = defineStore('auth', () => {
       ...user.value,
       phone: phone,
     }
-    localStorage.setItem('user', phone)
+    localStorage.setItem('user', user.value)
   }
 
   const logout = () => {

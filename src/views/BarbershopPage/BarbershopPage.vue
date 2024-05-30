@@ -71,7 +71,6 @@ import ServiceCardWithoutImage from "@/components/ServiceCardWithoutImage/Servic
 import OrderDate from "@/components/OrderDate/OrderDate.vue";
 import axios from "axios";
 import {useAuthStore} from "@/store/authStore.ts";
-import Button from "primevue/button";
 import AuthPhone from "@/components/Auth/AuthPhone.vue";
 
 const organizationStore = useOrganizationStore()
@@ -127,11 +126,12 @@ const confirmOrder = () => {
     }
   }
 
-  axios.post(`${import.meta.env.VITE_APP_URL}/organization/${organizationStore.organization.id}/order/`, data, {
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-    }
-  })
+  axios.post(`${import.meta.env.VITE_APP_URL}/organization/${organizationStore.organization.id}/order`, data)
+    .then(() => {
+      selectedDate.value = ''
+      selectedServices.value = []
+      firstTab.value = false
+    })
 }
 </script>
 
